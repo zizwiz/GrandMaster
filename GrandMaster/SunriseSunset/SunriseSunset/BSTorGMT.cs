@@ -17,9 +17,5 @@ namespace SunriseSunset
 
            return DateTime.Parse(date.AddDays(-daysOffset).ToLongDateString());
         }
-
-
-
-
     }
 }

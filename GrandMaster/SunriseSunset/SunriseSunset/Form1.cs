@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace SunriseSunset
 {
@@ -12,14 +13,19 @@ namespace SunriseSunset
         public Form1()
         {
             InitializeComponent();
-            cmbobx_airport_info.SelectedIndex = 34;
         }
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
+            Thread myThread;
+
             //Get the data file from resources and write to file in same dir as the app.
             File.WriteAllText("airport_data.xml", Properties.Resources.airport_data);
-
+            //Start thread to populate the combobox after writing file above
+            //Watch cross threading
+            myThread = new Thread(new ThreadStart(PopulateAirfieldCmboBx));
+            myThread.Start();
+            
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
         }
@@ -35,7 +41,7 @@ namespace SunriseSunset
             double lng = double.Parse(data[6]);
 
 
-            int year = SunriseSunsetDateTimePicker.Value.Year; 
+            int year = SunriseSunsetDateTimePicker.Value.Year;
             int month = SunriseSunsetDateTimePicker.Value.Month;
             int day = SunriseSunsetDateTimePicker.Value.Day;
 
@@ -66,7 +72,7 @@ namespace SunriseSunset
             if (BritishSummerTime) sunsetTime = sunsetTime + new TimeSpan(1, 0, 0);
             string sunsetTimeString = sunsetTime.ToString(@"hh\:mm\:ss");
             rchtxbx_output.AppendText("Sunset = " + sunsetTimeString + "\r\r");
-            
+
             ///////////////////////////////////////////////////////////////////////////////
             /// Civil Twilight Sunrise and Sunset
             /////////////////////////////////////////////////////////////////////////////// 
@@ -132,6 +138,39 @@ namespace SunriseSunset
         private void btn_reset_Click(object sender, EventArgs e)
         {
             rchtxbx_output.Text = "";
+        }
+
+        void PopulateAirfieldCmboBx()
+        {
+            // A different thread watch cross threading
+            //populate the combo boxes with the airfield names direct from xml file so we get 
+            //names correctly spelt for later look up
+            XmlDocument doc = new XmlDocument();
+            doc.Load("airport_data.xml");
+            XmlNodeList airportList = doc.SelectNodes("uk_airports/airport_info/airport_name");
+            foreach (XmlNode Name in airportList)
+            {
+                if (Name.InnerText != "UN-ASSIGNED") // if there is am actual airport
+                {
+                    string[] data = airport_data.GetAirportInfo(Name.InnerText);
+
+                    if (data[8] != "") // only include if we have data for airport in this case altitude in metres
+                    {
+                        //use invoke ot prevent cross threading
+                        BeginInvoke(new Action(() =>
+                        {
+                            cmbobx_airport_info.Items.Add(Name.InnerText);
+                        }));
+                    }
+                }
+            }
+
+            //use invoke ot prevent cross threading
+            //Set to Cambridge City Airport
+            BeginInvoke(new Action(() =>
+            {
+                cmbobx_airport_info.SelectedIndex = 33;
+            }));
         }
     }
 }
