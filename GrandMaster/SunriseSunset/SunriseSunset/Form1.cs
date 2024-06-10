@@ -15,7 +15,7 @@ namespace SunriseSunset
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, System.EventArgs e)
+        private async void Form1_Load(object sender, System.EventArgs e)
         {
             Thread myThread;
 
@@ -25,13 +25,21 @@ namespace SunriseSunset
             //Watch cross threading
             myThread = new Thread(new ThreadStart(PopulateAirfieldCmboBx));
             myThread.Start();
-            
+
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
+            await webView_chart.EnsureCoreWebView2Async();
         }
 
         private void btn_calc_Click(object sender, System.EventArgs e)
         {
+            Calculate();
+        }
+
+        private void Calculate()
+        {
+            Reset();
+
             rchtxbx_output.Text = "";
 
             double tsunrise, tsunset;
@@ -39,6 +47,14 @@ namespace SunriseSunset
             string[] data = airport_data.GetAirportInfo(cmbobx_airport_info.Text);
             double lat = double.Parse(data[4]);
             double lng = double.Parse(data[6]);
+
+            rchtxbx_output.SelectionFont = new Font("Ariel", 8, FontStyle.Underline);
+            rchtxbx_output.AppendText(data[2] + "\r");
+            rchtxbx_output.AppendText("ICAO Code = " + data[1] + "\r");
+            rchtxbx_output.AppendText("Elevation = " + data[7] + "m\r");
+            rchtxbx_output.AppendText("Latitude = " + data[4] + "\r");
+            rchtxbx_output.AppendText("Longitude = " + data[6] + "\r\r");
+
 
 
             int year = SunriseSunsetDateTimePicker.Value.Year;
@@ -128,6 +144,12 @@ namespace SunriseSunset
             if (BritishSummerTime) ATsunsetTime = ATsunsetTime + new TimeSpan(1, 0, 0);
             string ATsunsetTimeString = ATsunsetTime.ToString(@"hh\:mm\:ss");
             rchtxbx_output.AppendText("Sunset = " + ATsunsetTimeString + "\r\r");
+
+
+            webView_chart.CoreWebView2.Navigate("https://www.openstreetmap.org/?minlat" +
+                                                lat + "&minlon=" + lng + "#map=14/" + lat + "/" + lng);
+
+
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -137,7 +159,13 @@ namespace SunriseSunset
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
+            Reset();
+        }
+
+        private void Reset()
+        {
             rchtxbx_output.Text = "";
+            webView_chart.CoreWebView2.Navigate("about:blank");
         }
 
         void PopulateAirfieldCmboBx()
@@ -171,6 +199,16 @@ namespace SunriseSunset
             {
                 cmbobx_airport_info.SelectedIndex = 33;
             }));
+        }
+
+        private void SunriseSunsetDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate();
+        }
+
+        private void cmbobx_airport_info_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Calculate();
         }
     }
 }
