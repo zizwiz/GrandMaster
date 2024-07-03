@@ -41,19 +41,19 @@ namespace SunriseSunset
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.webView_chart = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.webView_chart)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_calc
@@ -181,6 +181,27 @@ namespace SunriseSunset
             this.panel4.Size = new System.Drawing.Size(543, 378);
             this.panel4.TabIndex = 3;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.webView_chart);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(543, 378);
+            this.panel6.TabIndex = 0;
+            // 
+            // webView_chart
+            // 
+            this.webView_chart.AllowExternalDrop = true;
+            this.webView_chart.CreationProperties = null;
+            this.webView_chart.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView_chart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webView_chart.Location = new System.Drawing.Point(0, 0);
+            this.webView_chart.Name = "webView_chart";
+            this.webView_chart.Size = new System.Drawing.Size(543, 378);
+            this.webView_chart.TabIndex = 0;
+            this.webView_chart.ZoomFactor = 1D;
+            // 
             // panel5
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel5, 3);
@@ -210,27 +231,6 @@ namespace SunriseSunset
             this.tableLayoutPanel2.Size = new System.Drawing.Size(783, 54);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.webView_chart);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(543, 378);
-            this.panel6.TabIndex = 0;
-            // 
-            // webView_chart
-            // 
-            this.webView_chart.AllowExternalDrop = true;
-            this.webView_chart.CreationProperties = null;
-            this.webView_chart.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView_chart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webView_chart.Location = new System.Drawing.Point(0, 0);
-            this.webView_chart.Name = "webView_chart";
-            this.webView_chart.Size = new System.Drawing.Size(543, 378);
-            this.webView_chart.TabIndex = 0;
-            this.webView_chart.ZoomFactor = 1D;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -247,10 +247,10 @@ namespace SunriseSunset
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.webView_chart)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
