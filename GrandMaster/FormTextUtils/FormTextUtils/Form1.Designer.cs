@@ -57,9 +57,9 @@ namespace FormTextUtils
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -79,9 +79,9 @@ namespace FormTextUtils
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label16);
             this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label11);
@@ -338,15 +338,6 @@ namespace FormTextUtils
             this.label13.TabIndex = 22;
             this.label13.Text = "°";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(400, 368);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(33, 20);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "NM";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -364,6 +355,15 @@ namespace FormTextUtils
             this.label16.Size = new System.Drawing.Size(14, 20);
             this.label16.TabIndex = 25;
             this.label16.Text = "ℓ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(400, 368);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(37, 20);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "ℓh-1";
             // 
             // Form1
             // 
@@ -412,9 +412,9 @@ namespace FormTextUtils
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
     }
 }
 
