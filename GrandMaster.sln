@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormTextUtils", "GrandMaste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandelbrot", "GrandMaster\Mandelbrot\Mandelbrot\Mandelbrot.csproj", "{4BB1BC04-2D64-48E1-ADD5-17EFB608FE20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPS", "GrandMaster\GPS\GPS\GPS.csproj", "{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4BB1BC04-2D64-48E1-ADD5-17EFB608FE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BB1BC04-2D64-48E1-ADD5-17EFB608FE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BB1BC04-2D64-48E1-ADD5-17EFB608FE20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
