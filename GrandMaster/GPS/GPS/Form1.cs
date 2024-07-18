@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using GPS_App.Properties;
+using GPS_App.utils;
 
 
 namespace GPSInfo
@@ -61,7 +62,12 @@ namespace GPSInfo
         
         private void btn_send_Click(object sender, EventArgs e)
         {
-            SendData(DateTime.Now.ToString("T"));
+            SendData("$PSRF103,00,01,00,01*25");
+        }
+
+        private void btn_add_Checksum_Click(object sender, EventArgs e)
+        {
+           rchtxbx_output.AppendText(Checksums.Add_nmea0183_checksum(txtbx_data_without_checksum.Text));
         }
     }
 }

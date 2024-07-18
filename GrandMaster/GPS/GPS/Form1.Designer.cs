@@ -56,6 +56,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab_NMEA = new System.Windows.Forms.TabPage();
             this.tab_output = new System.Windows.Forms.TabPage();
             this.tab_rs232 = new System.Windows.Forms.TabPage();
             this.tab_debug = new System.Windows.Forms.TabPage();
@@ -63,6 +64,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_add_Checksum = new System.Windows.Forms.Button();
+            this.txtbx_data_without_checksum = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,6 +75,7 @@
             this.tab_debug.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -363,6 +368,7 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tab_NMEA);
             this.tabControl1.Controls.Add(this.tab_output);
             this.tabControl1.Controls.Add(this.tab_rs232);
             this.tabControl1.Controls.Add(this.tab_debug);
@@ -372,6 +378,15 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1338, 657);
             this.tabControl1.TabIndex = 0;
+            // 
+            // tab_NMEA
+            // 
+            this.tab_NMEA.Location = new System.Drawing.Point(4, 29);
+            this.tab_NMEA.Name = "tab_NMEA";
+            this.tab_NMEA.Size = new System.Drawing.Size(1330, 624);
+            this.tab_NMEA.TabIndex = 3;
+            this.tab_NMEA.Text = "NMEA";
+            this.tab_NMEA.UseVisualStyleBackColor = true;
             // 
             // tab_output
             // 
@@ -445,6 +460,8 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.txtbx_data_without_checksum);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(665, 3);
             this.panel5.Name = "panel5";
@@ -453,6 +470,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btn_add_Checksum);
             this.panel3.Controls.Add(this.btn_clear);
             this.panel3.Controls.Add(this.btn_send);
             this.panel3.Controls.Add(this.btn_close);
@@ -462,6 +480,32 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1338, 74);
             this.panel3.TabIndex = 1;
+            // 
+            // btn_add_Checksum
+            // 
+            this.btn_add_Checksum.Location = new System.Drawing.Point(1136, 8);
+            this.btn_add_Checksum.Name = "btn_add_Checksum";
+            this.btn_add_Checksum.Size = new System.Drawing.Size(148, 57);
+            this.btn_add_Checksum.TabIndex = 11;
+            this.btn_add_Checksum.Text = "Add Checksum";
+            this.btn_add_Checksum.UseVisualStyleBackColor = true;
+            this.btn_add_Checksum.Click += new System.EventHandler(this.btn_add_Checksum_Click);
+            // 
+            // txtbx_data_without_checksum
+            // 
+            this.txtbx_data_without_checksum.Location = new System.Drawing.Point(317, 88);
+            this.txtbx_data_without_checksum.Name = "txtbx_data_without_checksum";
+            this.txtbx_data_without_checksum.Size = new System.Drawing.Size(247, 26);
+            this.txtbx_data_without_checksum.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(90, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Data minus checksum";
             // 
             // Form1
             // 
@@ -486,6 +530,8 @@
             this.tab_debug.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -525,6 +571,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TabPage tab_NMEA;
+        private System.Windows.Forms.Button btn_add_Checksum;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtbx_data_without_checksum;
     }
 }
 
