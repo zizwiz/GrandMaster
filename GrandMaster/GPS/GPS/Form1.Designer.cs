@@ -63,10 +63,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtbx_data_without_checksum = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btn_add_Checksum = new System.Windows.Forms.Button();
-            this.txtbx_data_without_checksum = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cmbobx_nmea_strings = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_check_Checksum = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtbx_data_with_checksum = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -460,6 +465,12 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btn_check_Checksum);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.txtbx_data_with_checksum);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Controls.Add(this.btn_add_Checksum);
+            this.panel5.Controls.Add(this.cmbobx_nmea_strings);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.txtbx_data_without_checksum);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -468,9 +479,24 @@
             this.panel5.Size = new System.Drawing.Size(656, 612);
             this.panel5.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(49, 529);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Data minus checksum";
+            // 
+            // txtbx_data_without_checksum
+            // 
+            this.txtbx_data_without_checksum.Location = new System.Drawing.Point(249, 526);
+            this.txtbx_data_without_checksum.Name = "txtbx_data_without_checksum";
+            this.txtbx_data_without_checksum.Size = new System.Drawing.Size(247, 26);
+            this.txtbx_data_without_checksum.TabIndex = 0;
+            // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btn_add_Checksum);
             this.panel3.Controls.Add(this.btn_clear);
             this.panel3.Controls.Add(this.btn_send);
             this.panel3.Controls.Add(this.btn_close);
@@ -483,29 +509,56 @@
             // 
             // btn_add_Checksum
             // 
-            this.btn_add_Checksum.Location = new System.Drawing.Point(1136, 8);
+            this.btn_add_Checksum.Location = new System.Drawing.Point(502, 515);
             this.btn_add_Checksum.Name = "btn_add_Checksum";
-            this.btn_add_Checksum.Size = new System.Drawing.Size(148, 57);
+            this.btn_add_Checksum.Size = new System.Drawing.Size(104, 54);
             this.btn_add_Checksum.TabIndex = 11;
             this.btn_add_Checksum.Text = "Add Checksum";
             this.btn_add_Checksum.UseVisualStyleBackColor = true;
             this.btn_add_Checksum.Click += new System.EventHandler(this.btn_add_Checksum_Click);
             // 
-            // txtbx_data_without_checksum
+            // cmbobx_nmea_strings
             // 
-            this.txtbx_data_without_checksum.Location = new System.Drawing.Point(317, 88);
-            this.txtbx_data_without_checksum.Name = "txtbx_data_without_checksum";
-            this.txtbx_data_without_checksum.Size = new System.Drawing.Size(247, 26);
-            this.txtbx_data_without_checksum.TabIndex = 0;
+            this.cmbobx_nmea_strings.FormattingEnabled = true;
+            this.cmbobx_nmea_strings.Location = new System.Drawing.Point(234, 23);
+            this.cmbobx_nmea_strings.Name = "cmbobx_nmea_strings";
+            this.cmbobx_nmea_strings.Size = new System.Drawing.Size(308, 28);
+            this.cmbobx_nmea_strings.TabIndex = 2;
             // 
-            // label2
+            // label3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(90, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Data minus checksum";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "NMEA Input Messages";
+            // 
+            // btn_check_Checksum
+            // 
+            this.btn_check_Checksum.Location = new System.Drawing.Point(502, 437);
+            this.btn_check_Checksum.Name = "btn_check_Checksum";
+            this.btn_check_Checksum.Size = new System.Drawing.Size(104, 54);
+            this.btn_check_Checksum.TabIndex = 15;
+            this.btn_check_Checksum.Text = "Check Checksum";
+            this.btn_check_Checksum.UseVisualStyleBackColor = true;
+            this.btn_check_Checksum.Click += new System.EventHandler(this.btn_check_Checksum_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(49, 451);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(186, 20);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Data including checksum";
+            // 
+            // txtbx_data_with_checksum
+            // 
+            this.txtbx_data_with_checksum.Location = new System.Drawing.Point(249, 448);
+            this.txtbx_data_with_checksum.Name = "txtbx_data_with_checksum";
+            this.txtbx_data_with_checksum.Size = new System.Drawing.Size(247, 26);
+            this.txtbx_data_with_checksum.TabIndex = 13;
             // 
             // Form1
             // 
@@ -575,6 +628,11 @@
         private System.Windows.Forms.Button btn_add_Checksum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtbx_data_without_checksum;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmbobx_nmea_strings;
+        private System.Windows.Forms.Button btn_check_Checksum;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtbx_data_with_checksum;
     }
 }
 

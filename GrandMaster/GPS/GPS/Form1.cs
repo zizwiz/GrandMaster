@@ -62,12 +62,19 @@ namespace GPSInfo
         
         private void btn_send_Click(object sender, EventArgs e)
         {
-            SendData("$PSRF103,00,01,00,01*25");
+           // SendData("$PSRF103,00,01,00,01*25\r\n");
+
+            SendData("$PSRF112,140,6,1*3B\r\n");
         }
 
         private void btn_add_Checksum_Click(object sender, EventArgs e)
         {
-           rchtxbx_output.AppendText(Checksums.Add_nmea0183_checksum(txtbx_data_without_checksum.Text));
+           rchtxbx_output.AppendText(Checksums.Add_nmea0183_checksum(txtbx_data_without_checksum.Text) +"\r");
+        }
+
+        private void btn_check_Checksum_Click(object sender, EventArgs e)
+        {
+            rchtxbx_output.AppendText(Checksums.Check_nmea0183_checksum(txtbx_data_with_checksum.Text) + "\r");
         }
     }
 }
