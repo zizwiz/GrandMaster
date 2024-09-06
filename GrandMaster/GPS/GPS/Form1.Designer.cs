@@ -63,15 +63,19 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtbx_data_without_checksum = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_add_Checksum = new System.Windows.Forms.Button();
-            this.cmbobx_nmea_strings = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btn_convertToDecimal = new System.Windows.Forms.Button();
             this.btn_check_Checksum = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtbx_data_with_checksum = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btn_add_Checksum = new System.Windows.Forms.Button();
+            this.cmbobx_nmea_strings = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtbx_data_without_checksum = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.gbMode = new System.Windows.Forms.GroupBox();
+            this.rbText = new System.Windows.Forms.RadioButton();
+            this.rbHex = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,6 +86,7 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.gbMode.SuspendLayout();
             this.SuspendLayout();
             // 
             // rchtxbx_output
@@ -405,6 +410,7 @@
             // 
             // tab_rs232
             // 
+            this.tab_rs232.Controls.Add(this.gbMode);
             this.tab_rs232.Controls.Add(this.chkCD);
             this.tab_rs232.Controls.Add(this.chkRTS);
             this.tab_rs232.Controls.Add(this.cmbParity);
@@ -465,6 +471,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btn_convertToDecimal);
             this.panel5.Controls.Add(this.btn_check_Checksum);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.txtbx_data_with_checksum);
@@ -478,6 +485,69 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(656, 612);
             this.panel5.TabIndex = 1;
+            // 
+            // btn_convertToDecimal
+            // 
+            this.btn_convertToDecimal.Location = new System.Drawing.Point(333, 198);
+            this.btn_convertToDecimal.Name = "btn_convertToDecimal";
+            this.btn_convertToDecimal.Size = new System.Drawing.Size(100, 39);
+            this.btn_convertToDecimal.TabIndex = 16;
+            this.btn_convertToDecimal.Text = "button1";
+            this.btn_convertToDecimal.UseVisualStyleBackColor = true;
+            this.btn_convertToDecimal.Click += new System.EventHandler(this.btn_convertToDecimal_Click);
+            // 
+            // btn_check_Checksum
+            // 
+            this.btn_check_Checksum.Location = new System.Drawing.Point(502, 437);
+            this.btn_check_Checksum.Name = "btn_check_Checksum";
+            this.btn_check_Checksum.Size = new System.Drawing.Size(104, 54);
+            this.btn_check_Checksum.TabIndex = 15;
+            this.btn_check_Checksum.Text = "Check Checksum";
+            this.btn_check_Checksum.UseVisualStyleBackColor = true;
+            this.btn_check_Checksum.Click += new System.EventHandler(this.btn_check_Checksum_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(49, 451);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(186, 20);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Data including checksum";
+            // 
+            // txtbx_data_with_checksum
+            // 
+            this.txtbx_data_with_checksum.Location = new System.Drawing.Point(249, 448);
+            this.txtbx_data_with_checksum.Name = "txtbx_data_with_checksum";
+            this.txtbx_data_with_checksum.Size = new System.Drawing.Size(247, 26);
+            this.txtbx_data_with_checksum.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(173, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "NMEA Input Messages";
+            // 
+            // btn_add_Checksum
+            // 
+            this.btn_add_Checksum.Location = new System.Drawing.Point(502, 515);
+            this.btn_add_Checksum.Name = "btn_add_Checksum";
+            this.btn_add_Checksum.Size = new System.Drawing.Size(104, 54);
+            this.btn_add_Checksum.TabIndex = 11;
+            this.btn_add_Checksum.Text = "Add Checksum";
+            this.btn_add_Checksum.UseVisualStyleBackColor = true;
+            this.btn_add_Checksum.Click += new System.EventHandler(this.btn_add_Checksum_Click);
+            // 
+            // cmbobx_nmea_strings
+            // 
+            this.cmbobx_nmea_strings.FormattingEnabled = true;
+            this.cmbobx_nmea_strings.Location = new System.Drawing.Point(234, 23);
+            this.cmbobx_nmea_strings.Name = "cmbobx_nmea_strings";
+            this.cmbobx_nmea_strings.Size = new System.Drawing.Size(308, 28);
+            this.cmbobx_nmea_strings.TabIndex = 2;
             // 
             // label2
             // 
@@ -507,58 +577,38 @@
             this.panel3.Size = new System.Drawing.Size(1338, 74);
             this.panel3.TabIndex = 1;
             // 
-            // btn_add_Checksum
+            // gbMode
             // 
-            this.btn_add_Checksum.Location = new System.Drawing.Point(502, 515);
-            this.btn_add_Checksum.Name = "btn_add_Checksum";
-            this.btn_add_Checksum.Size = new System.Drawing.Size(104, 54);
-            this.btn_add_Checksum.TabIndex = 11;
-            this.btn_add_Checksum.Text = "Add Checksum";
-            this.btn_add_Checksum.UseVisualStyleBackColor = true;
-            this.btn_add_Checksum.Click += new System.EventHandler(this.btn_add_Checksum_Click);
+            this.gbMode.Controls.Add(this.rbText);
+            this.gbMode.Controls.Add(this.rbHex);
+            this.gbMode.Location = new System.Drawing.Point(271, 442);
+            this.gbMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbMode.Name = "gbMode";
+            this.gbMode.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbMode.Size = new System.Drawing.Size(222, 66);
+            this.gbMode.TabIndex = 15;
+            this.gbMode.TabStop = false;
+            this.gbMode.Text = "Data &Mode";
             // 
-            // cmbobx_nmea_strings
+            // rbText
             // 
-            this.cmbobx_nmea_strings.FormattingEnabled = true;
-            this.cmbobx_nmea_strings.Location = new System.Drawing.Point(234, 23);
-            this.cmbobx_nmea_strings.Name = "cmbobx_nmea_strings";
-            this.cmbobx_nmea_strings.Size = new System.Drawing.Size(308, 28);
-            this.cmbobx_nmea_strings.TabIndex = 2;
+            this.rbText.AutoSize = true;
+            this.rbText.Location = new System.Drawing.Point(18, 29);
+            this.rbText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rbText.Name = "rbText";
+            this.rbText.Size = new System.Drawing.Size(64, 24);
+            this.rbText.TabIndex = 0;
+            this.rbText.Text = "Text";
             // 
-            // label3
+            // rbHex
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "NMEA Input Messages";
-            // 
-            // btn_check_Checksum
-            // 
-            this.btn_check_Checksum.Location = new System.Drawing.Point(502, 437);
-            this.btn_check_Checksum.Name = "btn_check_Checksum";
-            this.btn_check_Checksum.Size = new System.Drawing.Size(104, 54);
-            this.btn_check_Checksum.TabIndex = 15;
-            this.btn_check_Checksum.Text = "Check Checksum";
-            this.btn_check_Checksum.UseVisualStyleBackColor = true;
-            this.btn_check_Checksum.Click += new System.EventHandler(this.btn_check_Checksum_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 451);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(186, 20);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Data including checksum";
-            // 
-            // txtbx_data_with_checksum
-            // 
-            this.txtbx_data_with_checksum.Location = new System.Drawing.Point(249, 448);
-            this.txtbx_data_with_checksum.Name = "txtbx_data_with_checksum";
-            this.txtbx_data_with_checksum.Size = new System.Drawing.Size(247, 26);
-            this.txtbx_data_with_checksum.TabIndex = 13;
+            this.rbHex.AutoSize = true;
+            this.rbHex.Location = new System.Drawing.Point(120, 29);
+            this.rbHex.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rbHex.Name = "rbHex";
+            this.rbHex.Size = new System.Drawing.Size(62, 24);
+            this.rbHex.TabIndex = 1;
+            this.rbHex.Text = "Hex";
             // 
             // Form1
             // 
@@ -586,6 +636,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.gbMode.ResumeLayout(false);
+            this.gbMode.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -633,6 +685,10 @@
         private System.Windows.Forms.Button btn_check_Checksum;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbx_data_with_checksum;
+        private System.Windows.Forms.Button btn_convertToDecimal;
+        private System.Windows.Forms.GroupBox gbMode;
+        private System.Windows.Forms.RadioButton rbText;
+        private System.Windows.Forms.RadioButton rbHex;
     }
 }
 

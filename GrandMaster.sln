@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mandelbrot", "GrandMaster\M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPS", "GrandMaster\GPS\GPS\GPS.csproj", "{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeColours", "GrandMaster\ChangeColours\ChangeColours\ChangeColours.csproj", "{3B5A4B36-604C-42CA-8A3E-D9A2A0B781AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7FBAD54-50B9-4C52-8B2D-7DC98E73E9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B5A4B36-604C-42CA-8A3E-D9A2A0B781AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B5A4B36-604C-42CA-8A3E-D9A2A0B781AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B5A4B36-604C-42CA-8A3E-D9A2A0B781AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B5A4B36-604C-42CA-8A3E-D9A2A0B781AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,8 +9,22 @@ using GPS_App.utils;
 namespace GPSInfo
 {
     #region Public Enumerations
-    public enum DataMode { Text, Hex }
-    public enum LogMsgType { Incoming, Outgoing, Normal, Warning, Error };
+
+    public enum DataMode
+    {
+        Text,
+        Hex
+    }
+
+    public enum LogMsgType
+    {
+        Incoming,
+        Outgoing,
+        Normal,
+        Warning,
+        Error
+    };
+
     #endregion
 
     public partial class Form1 : Form
@@ -18,7 +32,7 @@ namespace GPSInfo
         #region Private Variables
 
         // Various colors for logging info
-        private Color[] LogMsgTypeColor = { Color.Blue, Color.Green, Color.Black, Color.Orange, Color.Red };
+        private Color[] LogMsgTypeColor = {Color.Blue, Color.Green, Color.Black, Color.Orange, Color.Red};
         private Settings settings = Settings.Default;
 
         #endregion
@@ -26,7 +40,7 @@ namespace GPSInfo
         public Form1()
         {
             InitializeComponent();
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,22 +73,47 @@ namespace GPSInfo
                 serialPort1.Close();
             }
         }
-        
+
         private void btn_send_Click(object sender, EventArgs e)
         {
-           // SendData("$PSRF103,00,01,00,01*25\r\n");
+            // SendData("$PSRF103,00,01,00,01*25\r\n");
 
-            SendData("$PSRF112,140,6,1*3B\r\n");
+            // SendData("$PSRF112,140,6,1*3B\r\n");
+
+            // SendData(ConvertASCIItoDec("$PSRF100,1,19200,8,1,0*38"));
+
+            SendData(Translators.ConvertASCIItoDec("$PSRF103,00,01,10,01*24"));
         }
 
         private void btn_add_Checksum_Click(object sender, EventArgs e)
         {
-           rchtxbx_output.AppendText(Checksums.Add_nmea0183_checksum(txtbx_data_without_checksum.Text) +"\r");
+            rchtxbx_output.AppendText(Checksums.Add_nmea0183_checksum(txtbx_data_without_checksum.Text) + "\r");
         }
 
         private void btn_check_Checksum_Click(object sender, EventArgs e)
         {
             rchtxbx_output.AppendText(Checksums.Check_nmea0183_checksum(txtbx_data_with_checksum.Text) + "\r");
+        }
+
+        private void btn_convertToDecimal_Click(object sender, EventArgs e)
+        {
+            string GPSData = "";
+            foreach (var character in txtbx_data_with_checksum.Text)
+            {
+                GPSData += Convert.ToUInt16(character);
+            }
+
+            rchtxbx_output.AppendText(GPSData + "1310");
+        }
+
+        private void rbText_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbHex_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

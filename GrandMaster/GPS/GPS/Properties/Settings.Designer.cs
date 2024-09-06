@@ -82,5 +82,17 @@ namespace GPS_App.Properties {
                 this["StopBits"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Hex")]
+        public string DataMode {
+            get {
+                return ((string)(this["DataMode"]));
+            }
+            set {
+                this["DataMode"] = value;
+            }
+        }
     }
 }

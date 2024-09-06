@@ -76,7 +76,7 @@ namespace GPSInfo
         
         private void RefreshComPortList()
         {
-            // Determain if the list of com port names has changed since last checked
+            // Determien if the list of com port names has changed since last checked
             string selected = RefreshComPortList(cmbPortName.Items.Cast<string>(), cmbPortName.SelectedItem as string, serialPort1.IsOpen);
 
             // If there was an update, then update the control showing the user the list of port names
@@ -106,7 +106,7 @@ namespace GPSInfo
 
             // This method will be called when there is data waiting in the port's buffer
             
-            // Determain which mode (string or binary) the user is in
+            // Determien which mode (string or binary) the user is in
             
                 // Obtain the number of bytes waiting in the port's buffer
                 int bytes = serialPort1.BytesToRead;
@@ -130,7 +130,7 @@ namespace GPSInfo
 
         private void UpdatePinState()
         {
-            this.Invoke(new ThreadStart(() => {
+            Invoke(new ThreadStart(() => {
                 // Show the state of the pins
                 chkCD.Checked = serialPort1.CDHolding;
                 chkCTS.Checked = serialPort1.CtsHolding;
