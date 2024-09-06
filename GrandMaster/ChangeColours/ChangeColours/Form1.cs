@@ -10,6 +10,9 @@ namespace ColourChanger
 {
     public partial class Form1 : Form
     {
+        /*
+         * red = R*00 + G*10 + B*20 + A*30 + 1*40
+         */
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +33,12 @@ namespace ColourChanger
             };
 
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
+
+            txt04.Visible = false;
+            txt14.Visible = false;
+            txt24.Visible = false;
+            txt34.Visible = false;
+            txt44.Visible = false;
         }
 
         // Color the picture.
@@ -50,14 +59,8 @@ namespace ColourChanger
         }
         private float[][] GetMatrix()
         {
-            float[][] values = new float[][]
-            {
-                new float[5],
-                new float[5],
-                new float[5],
-                new float[5],
-                new float[5],
-            };
+            float[][] values = {new float[5], new float[5], new float[5], new float[5], new float[5],};
+
             for (int i = 0; i < 5; i++)
             {
                 for (int j = 0; j < 5; j++)
@@ -126,9 +129,9 @@ namespace ColourChanger
         {
             foreach (TextBox[] txt_array in TextBoxes)
                 foreach (TextBox txt in txt_array)
-                    txt.Text = "0.0000";
+                    txt.Text = "0";
             for (int i = 3; i < 5; i++)
-                TextBoxes[i][i].Text = "1.0000";
+                TextBoxes[i][i].Text = "1";
 
             ToolStripMenuItem menu_item = sender as ToolStripMenuItem;
             if (menu_item.Tag.ToString().ToLower() == "use bg color")
@@ -137,8 +140,8 @@ namespace ColourChanger
                 txt00.Text = (color.R / 255f).ToString("f4");
                 txt11.Text = (color.G / 255f).ToString("f4");
                 txt22.Text = (color.B / 255f).ToString("f4");
-                txt33.Text = "1.0000";
-                txt44.Text = "1.0000";
+                txt33.Text = "1";
+                txt44.Text = "1";
             }
             else
             {
@@ -146,7 +149,7 @@ namespace ColourChanger
                 if (color_name == "identity")
                 {
                     for (int i = 0; i < 3; i++)
-                        TextBoxes[i][i].Text = "1.0000";
+                        TextBoxes[i][i].Text = "1";
                 }
                 else if (color_name == "average")
                 {
@@ -266,9 +269,9 @@ namespace ColourChanger
         {
             foreach (TextBox[] txt_array in TextBoxes)
                 foreach (TextBox txt in txt_array)
-                    txt.Text = "0.0000";
+                    txt.Text = "0";
             for (int i = 0; i < 5; i++)
-                TextBoxes[i][i].Text = "1.0000";
+                TextBoxes[i][i].Text = "1";
         }
 
         private void mnuSwapRedGreen_Click(object sender, EventArgs e)
@@ -356,6 +359,22 @@ namespace ColourChanger
             txt30.Text = "0"; txt31.Text = "0"; txt32.Text = "0"; txt33.Text = "1"; txt34.Text = "0";
             txt40.Text = "0"; txt41.Text = "0"; txt42.Text = "0"; txt43.Text = "0"; txt44.Text = "1";
             ColorPicture();
+        }
+
+        private void txtbx_TextChanged(object sender, EventArgs e)
+        {
+            TextBox senderTextBox = sender as TextBox;
+            //float val = 0;
+            bool res = float.TryParse(senderTextBox.Text, out float val);
+            if (res && val >= -1 && val <= 1)
+            {
+                // OK
+            }
+            else
+            {
+               // MessageBox.Show("Please input float between -1 to 1 only.");
+               // return;
+            }
         }
     }
 }
