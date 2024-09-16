@@ -120,7 +120,7 @@
             this.txtbx_blue = new System.Windows.Forms.TextBox();
             this.txtbx_black = new System.Windows.Forms.TextBox();
             this.txtbx_white = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lbl_pixel_colour = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picOriginal)).BeginInit();
@@ -138,7 +138,7 @@
             this.swapToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1352, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1352, 36);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -150,7 +150,7 @@
             this.toolStripMenuItem1,
             this.mnuFileExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 30);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // mnuFileOpen
@@ -202,7 +202,7 @@
             this.mnuPresetsMonochrome,
             this.mnuPresetsSepia});
             this.presetsToolStripMenuItem.Name = "presetsToolStripMenuItem";
-            this.presetsToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
+            this.presetsToolStripMenuItem.Size = new System.Drawing.Size(84, 30);
             this.presetsToolStripMenuItem.Text = "&Presets";
             // 
             // mnuPresetsIdentity
@@ -351,7 +351,7 @@
             this.mnuSwapRedBlue,
             this.mnuSwapGreenBlue});
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(71, 29);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(71, 30);
             this.toolStripMenuItem6.Text = "&Swap";
             // 
             // mnuSwapRedGreen
@@ -384,7 +384,7 @@
             this.mnuSwapRedWhite,
             this.mnuRedToBlack});
             this.swapToolStripMenuItem.Name = "swapToolStripMenuItem";
-            this.swapToolStripMenuItem.Size = new System.Drawing.Size(83, 29);
+            this.swapToolStripMenuItem.Size = new System.Drawing.Size(83, 30);
             this.swapToolStripMenuItem.Text = "&Remap";
             // 
             // mnuSwapRedYellow
@@ -987,14 +987,14 @@
             this.txtbx_white.TabIndex = 75;
             this.txtbx_white.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label10
+            // lbl_pixel_colour
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(684, 45);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(91, 20);
-            this.label10.TabIndex = 76;
-            this.label10.Text = "Pixel Colour";
+            this.lbl_pixel_colour.AutoSize = true;
+            this.lbl_pixel_colour.Location = new System.Drawing.Point(684, 45);
+            this.lbl_pixel_colour.Name = "lbl_pixel_colour";
+            this.lbl_pixel_colour.Size = new System.Drawing.Size(91, 20);
+            this.lbl_pixel_colour.TabIndex = 76;
+            this.lbl_pixel_colour.Text = "Pixel Colour";
             // 
             // Form1
             // 
@@ -1002,7 +1002,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1352, 903);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lbl_pixel_colour);
             this.Controls.Add(this.txtbx_white);
             this.Controls.Add(this.txtbx_black);
             this.Controls.Add(this.txtbx_blue);
@@ -1167,7 +1167,7 @@
         private System.Windows.Forms.TextBox txtbx_blue;
         private System.Windows.Forms.TextBox txtbx_black;
         private System.Windows.Forms.TextBox txtbx_white;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbl_pixel_colour;
     }
 }
 

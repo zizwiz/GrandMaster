@@ -10,9 +10,7 @@ namespace ColourChanger
 {
     public partial class Form1 : Form
     {
-        /*
-         * red = R*00 + G*10 + B*20 + A*30 + 40
-         */
+
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +18,13 @@ namespace ColourChanger
 
         private TextBox[][] TextBoxes;
         private bool flag = false;
+
+        /// These are only used for explaining
+        private int RedX; private int RedY;
+        private int GreenX; private int GreenY;
+        private int BlueX; private int BlueY;
+        private int BlackX; private int BlackY;
+        private int WhiteX; private int WhiteY;
 
         // Display the image converted to sepia tone.
         private void Form1_Load(object sender, EventArgs e)
@@ -35,7 +40,7 @@ namespace ColourChanger
             };
 
             ResetToOriginal();
-            
+
 
             // This column of the matrix does nothing as it is not used.
             // We make it invisible and this prevents confusion.
@@ -58,35 +63,35 @@ namespace ColourChanger
 
             picToned.Image = AdjustColor(picOriginal.Image);
             mnuFileSaveAs.Enabled = (picToned.Image != null);
-            
-            Color RedPixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(50, 50);
+
+            Color RedPixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(RedX, RedY);
             lbl_R_before.Text = RedPixelBeforeColor.ToString();
 
-            Color GreenPixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(150, 50);
+            Color GreenPixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(GreenX, GreenY);
             lbl_G_before.Text = GreenPixelBeforeColor.ToString();
 
-            Color BluePixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(250, 05);
+            Color BluePixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(BlueX, BlueY);
             lbl_B_before.Text = BluePixelBeforeColor.ToString();
 
-            Color BlackPixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(350, 50);
+            Color BlackPixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(BlackX, BlackY);
             lbl_K_before.Text = BlackPixelBeforeColor.ToString();
 
-            Color WhitePixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(450, 05);
+            Color WhitePixelBeforeColor = new Bitmap(picOriginal.Image).GetPixel(WhiteX, WhiteY);
             lbl_W_before.Text = WhitePixelBeforeColor.ToString();
 
-            Color RedPixelAfterColor = new Bitmap(picToned.Image).GetPixel(50, 50);
+            Color RedPixelAfterColor = new Bitmap(picToned.Image).GetPixel(RedX, RedY);
             lbl_R_after.Text = RedPixelAfterColor.ToString();
 
-            Color GreenPixelAfterColor = new Bitmap(picToned.Image).GetPixel(150, 50);
+            Color GreenPixelAfterColor = new Bitmap(picToned.Image).GetPixel(GreenX, GreenY);
             lbl_G_after.Text = GreenPixelAfterColor.ToString();
 
-            Color BluePixelAfterColor = new Bitmap(picToned.Image).GetPixel(250, 50);
+            Color BluePixelAfterColor = new Bitmap(picToned.Image).GetPixel(BlueX, BlueY);
             lbl_B_after.Text = BluePixelAfterColor.ToString();
 
-            Color BlackPixelAfterColor = new Bitmap(picToned.Image).GetPixel(350, 05);
+            Color BlackPixelAfterColor = new Bitmap(picToned.Image).GetPixel(BlackX, BlackY);
             lbl_K_after.Text = BlackPixelAfterColor.ToString();
 
-            Color WhitePixelAfterColor = new Bitmap(picToned.Image).GetPixel(450, 50);
+            Color WhitePixelAfterColor = new Bitmap(picToned.Image).GetPixel(WhiteX, WhiteY);
             lbl_W_after.Text = WhitePixelAfterColor.ToString();
 
             GC.Collect(); // Used to clean up and return used memory.
@@ -102,7 +107,7 @@ namespace ColourChanger
 
         private float[][] GetMatrix()
         {
-            float[][] values = {new float[5], new float[5], new float[5], new float[5], new float[5],};
+            float[][] values = { new float[5], new float[5], new float[5], new float[5], new float[5], };
 
             for (int i = 0; i < 5; i++)
             {
@@ -152,6 +157,51 @@ namespace ColourChanger
             if (ofdPicture.ShowDialog() == DialogResult.OK)
             {
                 picOriginal.Image = LoadBitmapUnlocked(ofdPicture.FileName);
+
+                string myFileName = Path.GetFileNameWithoutExtension(ofdPicture.FileName);
+
+                lbl_R_before.Visible = lbl_G_before.Visible = lbl_B_before.Visible = lbl_K_before.Visible =
+                    lbl_W_before.Visible = lbl_R_after.Visible = lbl_G_after.Visible = lbl_B_after.Visible =
+                        lbl_K_after.Visible = lbl_W_after.Visible = txtbx_red.Visible = txtbx_black.Visible =
+                            txtbx_blue.Visible = txtbx_green.Visible = txtbx_white.Visible = lbl_pixel_colour.Visible =
+                                true;
+
+                // We only use this to tell us where the pixels are we are looking at during the explanation
+                // If using the app as a user then yo do not need this info so make them invisible.
+                if (myFileName == "100blocks_input")
+                {
+                    RedX = 50; RedY = 50;
+                    GreenX = 150; GreenY = 50;
+                    BlueX = 250; BlueY = 50;
+                    BlackX = 350; BlackY = 50;
+                    WhiteX = 450; WhiteY = 50;
+
+                }
+                else if (myFileName == "colourcast_input")
+                {
+                    RedX = 960; RedY = 139;
+                    GreenX = 625; GreenY = 280;
+                    BlueX = 610; BlueY = 460;
+                    BlackX = 600; BlackY = 139;
+                    WhiteX = 260; WhiteY = 139;
+                }
+                else if (myFileName == "rgb_input")
+                {
+                    RedX = 0; RedY = 0;
+                    GreenX = 1; GreenY = 0;
+                    BlueX = 2; BlueY = 0;
+                    BlackX = 3; BlackY = 0;
+                    WhiteX = 4; WhiteY = 0;
+                }
+                else
+                {
+                    lbl_R_before.Visible = lbl_G_before.Visible = lbl_B_before.Visible = lbl_K_before.Visible =
+                        lbl_W_before.Visible = lbl_R_after.Visible = lbl_G_after.Visible = lbl_B_after.Visible =
+                            lbl_K_after.Visible = lbl_W_after.Visible = txtbx_red.Visible = txtbx_black.Visible =
+                                txtbx_blue.Visible = txtbx_green.Visible = txtbx_white.Visible = lbl_pixel_colour.Visible = 
+                                    false;
+                }
+                
                 ColorPicture();
             }
         }
@@ -340,7 +390,7 @@ namespace ColourChanger
                 }
             }
         }
-    
+
         private void mnuSwapRedGreen_Click(object sender, EventArgs e)
         {
             ResetToOriginal();
@@ -417,7 +467,7 @@ namespace ColourChanger
         {
             TextBox senderTextBox = sender as TextBox;
 
-           // red = R*00 + G*10 + B*20 + A*30 + 40
+            // red = R*00 + G*10 + B*20 + A*30 + 40
 
             //These boxes show the effect you have on the colour.
             // Colours here are ARGB
