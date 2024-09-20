@@ -50,6 +50,7 @@ This project is licensed under GNU GENERAL PUBLIC LICENSE Version 3 - see the [L
 
 ## Acknowledgments
 
-* To the folks at Jetbrains for providing me with a Software licence, Jetbrains products make software creation easy. 
+* To the folks at Jetbrains for providing me with a Software licence, Jetbrains products make software creation easy.
+* To many others who have shared code that I have looked at and modified to make work for my project. 
 * To everyone who has helped me with code when I have got stuck. Such a wonderful community of mutual help.
 
