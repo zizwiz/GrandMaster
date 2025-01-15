@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Globalization;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Text;
+using dataEncryption.Utils;
 
 namespace dataEncryption
 {
@@ -97,16 +99,39 @@ namespace dataEncryption
 
             txtbx_original_red.BackColor = Color.FromArgb(255, pixelColor.R,
                 255, 255);
-            txtbx_original_red.Text = Convert.ToString(pixelColor.R, 2).PadLeft(8, '0');
+            txtbx_original_red.Text = DataConversion.ByteToBinary(pixelColor.R); //show binary value
+           
+
+            var abc = BitConverter.GetBytes(pixelColor.R | (1 << 0))[0]; //convert byte to binary, change lsb, convert back to byte
+
+            txtbx_red_flip_bit8.BackColor = Color.FromArgb(255, abc,
+                255, 255);
+
+            txtbx_red_flip_bit8.Text = DataConversion.ByteToBinary(abc);
+
+            var combined_abc = BitConverter.GetBytes(abc | (1 << 1))[0];
+
+            abc = BitConverter.GetBytes(pixelColor.R | (1 << 1))[0]; //convert byte to binary, change lsb, convert back to byte
+
+            txtbx_red_flip_bit7.BackColor = Color.FromArgb(255, abc,
+                255, 255);
+
+            txtbx_red_flip_bit7.Text = DataConversion.ByteToBinary(abc);
+
+
+
+            txtbx_red_flip_bit7_8.BackColor = Color.FromArgb(255, combined_abc,
+                255, 255);
+            txtbx_red_flip_bit7_8.Text = DataConversion.ByteToBinary(combined_abc);
 
 
             txtbx_original_green.BackColor = Color.FromArgb(255, 255,
                 pixelColor.G, 255);
-            txtbx_original_green.Text = Convert.ToString(pixelColor.G, 2).PadLeft(8, '0');
+            txtbx_original_green.Text = DataConversion.ByteToBinary(pixelColor.G);  //show binary value
 
             txtbx_original_blue.BackColor = Color.FromArgb(255, 255,
                 255, pixelColor.B);
-            txtbx_original_blue.Text = Convert.ToString(pixelColor.B, 2).PadLeft(8, '0');
+            txtbx_original_blue.Text = DataConversion.ByteToBinary(pixelColor.B);  //show binary value
         }
 
 
@@ -119,7 +144,7 @@ namespace dataEncryption
             coordinates.lbl_x_coordinate.Text = myLocation.X.ToString();
             coordinates.lbl_y_coordinate.Text = myLocation.Y.ToString();
             
-            coordinates.DesktopLocation = new Point(myLocation.X, myLocation.Y);
+            coordinates.Location = new Point(myLocation.X, myLocation.Y);
 
         }
 

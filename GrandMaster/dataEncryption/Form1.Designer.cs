@@ -55,6 +55,10 @@ namespace dataEncryption
             this.lbl_original_pixel = new System.Windows.Forms.Label();
             this.lbl_original_green = new System.Windows.Forms.Label();
             this.lbl_original_blue = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtbx_red_flip_bit8 = new System.Windows.Forms.TextBox();
+            this.txtbx_red_flip_bit7 = new System.Windows.Forms.TextBox();
+            this.txtbx_red_flip_bit7_8 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Original)).BeginInit();
@@ -65,6 +69,7 @@ namespace dataEncryption
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -173,6 +178,7 @@ namespace dataEncryption
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel2.Controls.Add(this.btn_get_original_pixel_colour, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.btn_close, 8, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -331,6 +337,37 @@ namespace dataEncryption
             this.lbl_original_blue.TabIndex = 24;
             this.lbl_original_blue.Text = "Original Blue";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.txtbx_red_flip_bit7_8);
+            this.panel4.Controls.Add(this.txtbx_red_flip_bit7);
+            this.panel4.Controls.Add(this.txtbx_red_flip_bit8);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(544, 68);
+            this.panel4.TabIndex = 31;
+            // 
+            // txtbx_red_flip_bit8
+            // 
+            this.txtbx_red_flip_bit8.Location = new System.Drawing.Point(8, 10);
+            this.txtbx_red_flip_bit8.Name = "txtbx_red_flip_bit8";
+            this.txtbx_red_flip_bit8.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_red_flip_bit8.TabIndex = 33;
+            // 
+            // txtbx_red_flip_bit7
+            // 
+            this.txtbx_red_flip_bit7.Location = new System.Drawing.Point(180, 10);
+            this.txtbx_red_flip_bit7.Name = "txtbx_red_flip_bit7";
+            this.txtbx_red_flip_bit7.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_red_flip_bit7.TabIndex = 34;
+            // 
+            // txtbx_red_flip_bit7_8
+            // 
+            this.txtbx_red_flip_bit7_8.Location = new System.Drawing.Point(352, 10);
+            this.txtbx_red_flip_bit7_8.Name = "txtbx_red_flip_bit7_8";
+            this.txtbx_red_flip_bit7_8.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_red_flip_bit7_8.TabIndex = 35;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -352,6 +389,8 @@ namespace dataEncryption
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,6 +422,10 @@ namespace dataEncryption
         private System.Windows.Forms.PictureBox picbx_Original;
         private System.Windows.Forms.PictureBox picbx_result;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtbx_red_flip_bit7_8;
+        private System.Windows.Forms.TextBox txtbx_red_flip_bit7;
+        private System.Windows.Forms.TextBox txtbx_red_flip_bit8;
     }
 }
 
