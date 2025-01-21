@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Text;
+using CenteredMessagebox;
 using dataEncryption.Utils;
 
 namespace dataEncryption
@@ -39,41 +40,24 @@ namespace dataEncryption
 
         private void btn_get_original_pixel_colour_Click(object sender, EventArgs e)
         {
-            // Load the image
-            Bitmap bitmap = new Bitmap(picbx_Original.Image);
-
-            // Specify the coordinates of the pixel
-            int x = int.Parse(txtbx_x_coord.Text); // X-coordinate
-            int y = int.Parse(txtbx_y_coord.Text); // Y-coordinate
-
-            // Get the color of the pixel
-            Color pixelColor = bitmap.GetPixel(x, y);
-
-            // Convert the color to a hex string
-            // string hexColor = ColorTranslator.ToHtml(pixelColor);
-
-            string hexColor = ColourUtilities.GetPixelColourString(pixelColor);
-
-            lbl_original_pixel_value.Text = hexColor;
-
-            txtbx_original_pixel.BackColor = Color.FromArgb(pixelColor.A, pixelColor.R,
-                pixelColor.G, pixelColor.B);
-
-            txtbx_original_red.BackColor = Color.FromArgb(255, pixelColor.R,
-                255, 255);
-
-            txtbx_original_green.BackColor = Color.FromArgb(255, 255,
-                pixelColor.G, 255);
-
-            txtbx_original_blue.BackColor = Color.FromArgb(255, 255,
-                255, pixelColor.B);
-
-            GC.Collect(); //Clear memory to prevent leaks
+            ImageUtilities.DecodePixelColour(picbx_Original, new Point(-1, -1), txtbx_x_coord, txtbx_y_coord,
+                lbl_original_pixel_value, lbl_original_alpha, lbl_original_red,
+                lbl_original_green, lbl_original_blue, txtbx_original_pixel, txtbx_original_red, 
+                txtbx_original_green, txtbx_original_blue);
         }
+
+
 
 
         private void picbx_Original_MouseUp(object sender, MouseEventArgs e)
         {
+            ImageUtilities.DecodePixelColour(picbx_Original, new Point(-1, -1), txtbx_x_coord, txtbx_y_coord,
+                lbl_original_pixel_value, lbl_original_alpha, lbl_original_red,
+                lbl_original_green, lbl_original_blue, txtbx_original_pixel, txtbx_original_red,
+                txtbx_original_green, txtbx_original_blue);
+
+           // To Do all below
+
             Point myLocation = e.Location;
 
             // Load the image
@@ -88,27 +72,6 @@ namespace dataEncryption
 
             // Get the color of the pixel
             Color pixelColor = bitmap.GetPixel(x, y);
-
-            // Convert the color to a hex string
-            // string hexColor = ColorTranslator.ToHtml(pixelColor);
-
-            string hexColor = ColourUtilities.GetPixelColourString(pixelColor);
-
-            lbl_original_pixel_value.Text = hexColor;
-            lbl_original_alpha.Text = pixelColor.A.ToString("X").PadLeft(2, '0');
-            lbl_original_red.Text = pixelColor.R.ToString("X").PadLeft(2, '0');
-            lbl_original_green.Text = pixelColor.G.ToString("X").PadLeft(2, '0');
-            lbl_original_blue.Text = pixelColor.B.ToString("X").PadLeft(2, '0');
-
-
-
-            txtbx_original_pixel.BackColor = Color.FromArgb(pixelColor.A, pixelColor.R,
-                pixelColor.G, pixelColor.B);
-
-            txtbx_original_red.BackColor = Color.FromArgb(255, pixelColor.R,
-                255, 255);
-            txtbx_original_red.Text = DataConversion.ByteToBinary(pixelColor.R); //show binary value
-           
 
             var abc = BitConverter.GetBytes(pixelColor.R | (1 << 0))[0]; //convert byte to binary, change lsb, convert back to byte
 
@@ -125,21 +88,13 @@ namespace dataEncryption
                 255, 255);
 
             txtbx_red_flip_bit7.Text = DataConversion.ByteToBinary(abc);
-
-
-
+            
             txtbx_red_flip_bit7_8.BackColor = Color.FromArgb(255, combined_abc,
                 255, 255);
             txtbx_red_flip_bit7_8.Text = DataConversion.ByteToBinary(combined_abc);
 
 
-            txtbx_original_green.BackColor = Color.FromArgb(255, 255,
-                pixelColor.G, 255);
-            txtbx_original_green.Text = DataConversion.ByteToBinary(pixelColor.G);  //show binary value
-
-            txtbx_original_blue.BackColor = Color.FromArgb(255, 255,
-                255, pixelColor.B);
-            txtbx_original_blue.Text = DataConversion.ByteToBinary(pixelColor.B);  //show binary value
+           
 
             GC.Collect(); //Clear memory to prevent leaks
         }
