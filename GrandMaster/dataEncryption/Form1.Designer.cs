@@ -41,6 +41,10 @@ namespace dataEncryption
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_get_original_pixel_colour = new System.Windows.Forms.Button();
             this.btn_close = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtbx_red_flip_bit7_8 = new System.Windows.Forms.TextBox();
+            this.txtbx_red_flip_bit7 = new System.Windows.Forms.TextBox();
+            this.txtbx_red_flip_bit8 = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtbx_original_pixel = new System.Windows.Forms.TextBox();
             this.lbl_original_pixel_value = new System.Windows.Forms.Label();
@@ -51,14 +55,22 @@ namespace dataEncryption
             this.lbl_x_coord = new System.Windows.Forms.Label();
             this.txtbx_original_red = new System.Windows.Forms.TextBox();
             this.lbl_y_coord = new System.Windows.Forms.Label();
-            this.lbl_original_red = new System.Windows.Forms.Label();
+            this.lbl_original_r = new System.Windows.Forms.Label();
             this.lbl_original_pixel = new System.Windows.Forms.Label();
-            this.lbl_original_green = new System.Windows.Forms.Label();
+            this.lbl_original_g = new System.Windows.Forms.Label();
+            this.lbl_original_b = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_save_modified_image = new System.Windows.Forms.Button();
+            this.btn_encode_bitmap = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_original_alpha = new System.Windows.Forms.Label();
+            this.lbl_original_red = new System.Windows.Forms.Label();
             this.lbl_original_blue = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.txtbx_red_flip_bit8 = new System.Windows.Forms.TextBox();
-            this.txtbx_red_flip_bit7 = new System.Windows.Forms.TextBox();
-            this.txtbx_red_flip_bit7_8 = new System.Windows.Forms.TextBox();
+            this.lbl_original_green = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Original)).BeginInit();
@@ -68,8 +80,9 @@ namespace dataEncryption
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -176,9 +189,12 @@ namespace dataEncryption
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
-            this.tableLayoutPanel2.Controls.Add(this.btn_get_original_pixel_colour, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_save_modified_image, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btn_close, 8, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btn_get_original_pixel_colour, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel5, 4, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -209,8 +225,47 @@ namespace dataEncryption
             this.btn_close.UseVisualStyleBackColor = true;
             this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.txtbx_red_flip_bit7_8);
+            this.panel4.Controls.Add(this.txtbx_red_flip_bit7);
+            this.panel4.Controls.Add(this.txtbx_red_flip_bit8);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(544, 68);
+            this.panel4.TabIndex = 31;
+            // 
+            // txtbx_red_flip_bit7_8
+            // 
+            this.txtbx_red_flip_bit7_8.Location = new System.Drawing.Point(352, 10);
+            this.txtbx_red_flip_bit7_8.Name = "txtbx_red_flip_bit7_8";
+            this.txtbx_red_flip_bit7_8.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_red_flip_bit7_8.TabIndex = 35;
+            // 
+            // txtbx_red_flip_bit7
+            // 
+            this.txtbx_red_flip_bit7.Location = new System.Drawing.Point(180, 10);
+            this.txtbx_red_flip_bit7.Name = "txtbx_red_flip_bit7";
+            this.txtbx_red_flip_bit7.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_red_flip_bit7.TabIndex = 34;
+            // 
+            // txtbx_red_flip_bit8
+            // 
+            this.txtbx_red_flip_bit8.Location = new System.Drawing.Point(8, 10);
+            this.txtbx_red_flip_bit8.Name = "txtbx_red_flip_bit8";
+            this.txtbx_red_flip_bit8.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_red_flip_bit8.TabIndex = 33;
+            // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.lbl_original_blue);
+            this.panel3.Controls.Add(this.lbl_original_green);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.lbl_original_red);
+            this.panel3.Controls.Add(this.lbl_original_alpha);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtbx_original_pixel);
             this.panel3.Controls.Add(this.lbl_original_pixel_value);
             this.panel3.Controls.Add(this.txtbx_x_coord);
@@ -220,10 +275,10 @@ namespace dataEncryption
             this.panel3.Controls.Add(this.lbl_x_coord);
             this.panel3.Controls.Add(this.txtbx_original_red);
             this.panel3.Controls.Add(this.lbl_y_coord);
-            this.panel3.Controls.Add(this.lbl_original_red);
+            this.panel3.Controls.Add(this.lbl_original_r);
             this.panel3.Controls.Add(this.lbl_original_pixel);
-            this.panel3.Controls.Add(this.lbl_original_green);
-            this.panel3.Controls.Add(this.lbl_original_blue);
+            this.panel3.Controls.Add(this.lbl_original_g);
+            this.panel3.Controls.Add(this.lbl_original_b);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 741);
             this.panel3.Name = "panel3";
@@ -240,7 +295,7 @@ namespace dataEncryption
             // lbl_original_pixel_value
             // 
             this.lbl_original_pixel_value.AutoSize = true;
-            this.lbl_original_pixel_value.Location = new System.Drawing.Point(588, 36);
+            this.lbl_original_pixel_value.Location = new System.Drawing.Point(597, 39);
             this.lbl_original_pixel_value.Name = "lbl_original_pixel_value";
             this.lbl_original_pixel_value.Size = new System.Drawing.Size(51, 20);
             this.lbl_original_pixel_value.TabIndex = 30;
@@ -248,7 +303,7 @@ namespace dataEncryption
             // 
             // txtbx_x_coord
             // 
-            this.txtbx_x_coord.Location = new System.Drawing.Point(142, 33);
+            this.txtbx_x_coord.Location = new System.Drawing.Point(117, 10);
             this.txtbx_x_coord.Name = "txtbx_x_coord";
             this.txtbx_x_coord.Size = new System.Drawing.Size(53, 26);
             this.txtbx_x_coord.TabIndex = 18;
@@ -263,7 +318,7 @@ namespace dataEncryption
             // 
             // txtbx_y_coord
             // 
-            this.txtbx_y_coord.Location = new System.Drawing.Point(327, 36);
+            this.txtbx_y_coord.Location = new System.Drawing.Point(117, 39);
             this.txtbx_y_coord.Name = "txtbx_y_coord";
             this.txtbx_y_coord.Size = new System.Drawing.Size(53, 26);
             this.txtbx_y_coord.TabIndex = 19;
@@ -279,7 +334,7 @@ namespace dataEncryption
             // lbl_x_coord
             // 
             this.lbl_x_coord.AutoSize = true;
-            this.lbl_x_coord.Location = new System.Drawing.Point(34, 36);
+            this.lbl_x_coord.Location = new System.Drawing.Point(9, 13);
             this.lbl_x_coord.Name = "lbl_x_coord";
             this.lbl_x_coord.Size = new System.Drawing.Size(102, 20);
             this.lbl_x_coord.TabIndex = 20;
@@ -295,20 +350,20 @@ namespace dataEncryption
             // lbl_y_coord
             // 
             this.lbl_y_coord.AutoSize = true;
-            this.lbl_y_coord.Location = new System.Drawing.Point(219, 39);
+            this.lbl_y_coord.Location = new System.Drawing.Point(9, 42);
             this.lbl_y_coord.Name = "lbl_y_coord";
             this.lbl_y_coord.Size = new System.Drawing.Size(102, 20);
             this.lbl_y_coord.TabIndex = 21;
             this.lbl_y_coord.Text = "Y Coordinate";
             // 
-            // lbl_original_red
+            // lbl_original_r
             // 
-            this.lbl_original_red.AutoSize = true;
-            this.lbl_original_red.Location = new System.Drawing.Point(923, 13);
-            this.lbl_original_red.Name = "lbl_original_red";
-            this.lbl_original_red.Size = new System.Drawing.Size(96, 20);
-            this.lbl_original_red.TabIndex = 22;
-            this.lbl_original_red.Text = "Original Red";
+            this.lbl_original_r.AutoSize = true;
+            this.lbl_original_r.Location = new System.Drawing.Point(923, 13);
+            this.lbl_original_r.Name = "lbl_original_r";
+            this.lbl_original_r.Size = new System.Drawing.Size(96, 20);
+            this.lbl_original_r.TabIndex = 22;
+            this.lbl_original_r.Text = "Original Red";
             // 
             // lbl_original_pixel
             // 
@@ -319,54 +374,136 @@ namespace dataEncryption
             this.lbl_original_pixel.TabIndex = 25;
             this.lbl_original_pixel.Text = "Original Pixel";
             // 
-            // lbl_original_green
+            // lbl_original_g
             // 
-            this.lbl_original_green.AutoSize = true;
-            this.lbl_original_green.Location = new System.Drawing.Point(1080, 13);
-            this.lbl_original_green.Name = "lbl_original_green";
-            this.lbl_original_green.Size = new System.Drawing.Size(111, 20);
-            this.lbl_original_green.TabIndex = 23;
-            this.lbl_original_green.Text = "Original Green";
+            this.lbl_original_g.AutoSize = true;
+            this.lbl_original_g.Location = new System.Drawing.Point(1080, 13);
+            this.lbl_original_g.Name = "lbl_original_g";
+            this.lbl_original_g.Size = new System.Drawing.Size(111, 20);
+            this.lbl_original_g.TabIndex = 23;
+            this.lbl_original_g.Text = "Original Green";
+            // 
+            // lbl_original_b
+            // 
+            this.lbl_original_b.AutoSize = true;
+            this.lbl_original_b.Location = new System.Drawing.Point(1261, 13);
+            this.lbl_original_b.Name = "lbl_original_b";
+            this.lbl_original_b.Size = new System.Drawing.Size(98, 20);
+            this.lbl_original_b.TabIndex = 24;
+            this.lbl_original_b.Text = "Original Blue";
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(596, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(1, 68);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Get Original Pixel";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btn_encode_bitmap);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(806, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(194, 68);
+            this.panel5.TabIndex = 33;
+            // 
+            // btn_save_modified_image
+            // 
+            this.btn_save_modified_image.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_save_modified_image.Location = new System.Drawing.Point(1011, 3);
+            this.btn_save_modified_image.Name = "btn_save_modified_image";
+            this.btn_save_modified_image.Size = new System.Drawing.Size(194, 68);
+            this.btn_save_modified_image.TabIndex = 31;
+            this.btn_save_modified_image.Text = "Save Modified Image";
+            this.btn_save_modified_image.UseVisualStyleBackColor = true;
+            this.btn_save_modified_image.Click += new System.EventHandler(this.btn_save_modified_image_Click);
+            // 
+            // btn_encode_bitmap
+            // 
+            this.btn_encode_bitmap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_encode_bitmap.Location = new System.Drawing.Point(0, 0);
+            this.btn_encode_bitmap.Name = "btn_encode_bitmap";
+            this.btn_encode_bitmap.Size = new System.Drawing.Size(194, 68);
+            this.btn_encode_bitmap.TabIndex = 0;
+            this.btn_encode_bitmap.Text = "Encode";
+            this.btn_encode_bitmap.UseVisualStyleBackColor = true;
+            this.btn_encode_bitmap.Click += new System.EventHandler(this.btn_encode_bitmap_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(191, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Alpha";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(191, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 20);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "red";
+            // 
+            // lbl_original_alpha
+            // 
+            this.lbl_original_alpha.AutoSize = true;
+            this.lbl_original_alpha.Location = new System.Drawing.Point(263, 16);
+            this.lbl_original_alpha.Name = "lbl_original_alpha";
+            this.lbl_original_alpha.Size = new System.Drawing.Size(25, 20);
+            this.lbl_original_alpha.TabIndex = 33;
+            this.lbl_original_alpha.Text = "....";
+            // 
+            // lbl_original_red
+            // 
+            this.lbl_original_red.AutoSize = true;
+            this.lbl_original_red.Location = new System.Drawing.Point(263, 39);
+            this.lbl_original_red.Name = "lbl_original_red";
+            this.lbl_original_red.Size = new System.Drawing.Size(25, 20);
+            this.lbl_original_red.TabIndex = 34;
+            this.lbl_original_red.Text = "....";
             // 
             // lbl_original_blue
             // 
             this.lbl_original_blue.AutoSize = true;
-            this.lbl_original_blue.Location = new System.Drawing.Point(1261, 13);
+            this.lbl_original_blue.Location = new System.Drawing.Point(489, 39);
             this.lbl_original_blue.Name = "lbl_original_blue";
-            this.lbl_original_blue.Size = new System.Drawing.Size(98, 20);
-            this.lbl_original_blue.TabIndex = 24;
-            this.lbl_original_blue.Text = "Original Blue";
+            this.lbl_original_blue.Size = new System.Drawing.Size(25, 20);
+            this.lbl_original_blue.TabIndex = 38;
+            this.lbl_original_blue.Text = "....";
             // 
-            // panel4
+            // lbl_original_green
             // 
-            this.panel4.Controls.Add(this.txtbx_red_flip_bit7_8);
-            this.panel4.Controls.Add(this.txtbx_red_flip_bit7);
-            this.panel4.Controls.Add(this.txtbx_red_flip_bit8);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(544, 68);
-            this.panel4.TabIndex = 31;
+            this.lbl_original_green.AutoSize = true;
+            this.lbl_original_green.Location = new System.Drawing.Point(489, 16);
+            this.lbl_original_green.Name = "lbl_original_green";
+            this.lbl_original_green.Size = new System.Drawing.Size(25, 20);
+            this.lbl_original_green.TabIndex = 37;
+            this.lbl_original_green.Text = "....";
             // 
-            // txtbx_red_flip_bit8
+            // label7
             // 
-            this.txtbx_red_flip_bit8.Location = new System.Drawing.Point(8, 10);
-            this.txtbx_red_flip_bit8.Name = "txtbx_red_flip_bit8";
-            this.txtbx_red_flip_bit8.Size = new System.Drawing.Size(166, 26);
-            this.txtbx_red_flip_bit8.TabIndex = 33;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(417, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 20);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Blue";
             // 
-            // txtbx_red_flip_bit7
+            // label8
             // 
-            this.txtbx_red_flip_bit7.Location = new System.Drawing.Point(180, 10);
-            this.txtbx_red_flip_bit7.Name = "txtbx_red_flip_bit7";
-            this.txtbx_red_flip_bit7.Size = new System.Drawing.Size(166, 26);
-            this.txtbx_red_flip_bit7.TabIndex = 34;
-            // 
-            // txtbx_red_flip_bit7_8
-            // 
-            this.txtbx_red_flip_bit7_8.Location = new System.Drawing.Point(352, 10);
-            this.txtbx_red_flip_bit7_8.Name = "txtbx_red_flip_bit7_8";
-            this.txtbx_red_flip_bit7_8.Size = new System.Drawing.Size(166, 26);
-            this.txtbx_red_flip_bit7_8.TabIndex = 35;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(417, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 20);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Green";
             // 
             // Form1
             // 
@@ -387,10 +524,11 @@ namespace dataEncryption
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -410,9 +548,9 @@ namespace dataEncryption
         private System.Windows.Forms.TextBox txtbx_original_red;
         private System.Windows.Forms.TextBox txtbx_original_pixel;
         private System.Windows.Forms.Label lbl_original_pixel;
-        private System.Windows.Forms.Label lbl_original_blue;
-        private System.Windows.Forms.Label lbl_original_green;
-        private System.Windows.Forms.Label lbl_original_red;
+        private System.Windows.Forms.Label lbl_original_b;
+        private System.Windows.Forms.Label lbl_original_g;
+        private System.Windows.Forms.Label lbl_original_r;
         private System.Windows.Forms.Label lbl_y_coord;
         private System.Windows.Forms.Label lbl_x_coord;
         private System.Windows.Forms.TextBox txtbx_y_coord;
@@ -426,6 +564,18 @@ namespace dataEncryption
         private System.Windows.Forms.TextBox txtbx_red_flip_bit7_8;
         private System.Windows.Forms.TextBox txtbx_red_flip_bit7;
         private System.Windows.Forms.TextBox txtbx_red_flip_bit8;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btn_save_modified_image;
+        private System.Windows.Forms.Button btn_encode_bitmap;
+        private System.Windows.Forms.Label lbl_original_blue;
+        private System.Windows.Forms.Label lbl_original_green;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_original_red;
+        private System.Windows.Forms.Label lbl_original_alpha;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
