@@ -90,5 +90,28 @@ namespace dataEncryption.Utils
             return result;
 
         }
+
+        public static bool ResetEncyptedTextBoxes(TextBox myTxtbx_red_flip_bit8, TextBox myTxtbx_red_flip_bit7,
+            TextBox myTxtbx_red_flip_bit7_8)
+        {
+            bool result;
+            try
+            {
+                myTxtbx_red_flip_bit8.BackColor = Color.FromArgb(255, 255, 255, 255);
+                myTxtbx_red_flip_bit8.Text = "";
+                myTxtbx_red_flip_bit7.BackColor = Color.FromArgb(255, 255, 255, 255);
+                myTxtbx_red_flip_bit7.Text = "";
+                myTxtbx_red_flip_bit7_8.BackColor = Color.FromArgb(255, 255, 255, 255);
+                myTxtbx_red_flip_bit7_8.Text = "";
+                result = true;
+            }
+            catch
+            {
+                result = false;
+            }
+
+            return result;
+
+        }
     }
 }

@@ -48,6 +48,8 @@ namespace dataEncryption.Utils
             {
                 x = myPoint.X; // X-coordinate
                 y = myPoint.Y; // Y-coordinate
+                myTextBoxX.Text = x.ToString(); // Put co-ordinates into textbox
+                myTextBoxY.Text = y.ToString(); // Put co-ordinates into textbox
             }
 
 
@@ -60,18 +62,21 @@ namespace dataEncryption.Utils
                     myLbl_original_red, myLbl_original_green, myLbl_original_blue))
             {
                 MsgBox.Show("Unable to work out the pixel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             if (!ColourUtilities.BackColourTextBox(pixelColor, myTxtbx_original_pixel,
                     myTxtbx_original_red, myTxtbx_original_green, myTxtbx_original_blue))
             {
                 MsgBox.Show("Unable to Back Colour Textboxes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             if (!ColourUtilities.WriteBinaryDataToTextBoxes(pixelColor, myTxtbx_original_red,
                     myTxtbx_original_green, myTxtbx_original_blue))
             {
                 MsgBox.Show("Unable to Write Binary Data to Textboxes", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             GC.Collect(); //Clear memory to prevent leaks
