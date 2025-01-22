@@ -30,7 +30,13 @@ namespace dataEncryption
             //make box to fit picture.
             picbx_Original.Size = picbx_result.Size = new Size(picbx_Original.Image.Width, picbx_Original.Image.Height);
 
-            ClientSize = new Size(picbx_Original.Image.Width, (picbx_Original.Image.Height + 160));
+            //ClientSize = new Size(picbx_Original.Image.Width, (picbx_Original.Image.Height + 160));
+
+            ClientSize = new Size(picbx_Original.Image.Width, (picbx_Original.Image.Height + 320));
+
+            CenterToScreen();
+
+            
         }
 
         private void btn_close_Click(object sender, EventArgs e)

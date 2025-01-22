@@ -14,7 +14,7 @@ namespace dataEncryption.Utils
         /// <param name="myColour"></param>
         /// <param name="myPixelX"></param>
         /// <param name="myPixelY"></param>
-        /// <returns></returns>
+        /// <returns>Bitmap with encoded pixel</returns>
         public static Bitmap EncodeColourIntoBitmap(Bitmap myBitmap, Color myColour, int myPixelX, int myPixelY)
         {
             Bitmap myUpdatedBitmap = new Bitmap(myBitmap.Width, myBitmap.Height);
@@ -24,7 +24,23 @@ namespace dataEncryption.Utils
             return myUpdatedBitmap;
         }
 
-
+        /// <summary>
+        /// Sends the pixel at the given co-ordinates to be decoded and written to the UI.
+        /// </summary>
+        /// <param name="myPictureBox"></param>
+        /// <param name="myPoint"></param>
+        /// <param name="myTextBoxX"></param>
+        /// <param name="myTextBoxY"></param>
+        /// <param name="myLbl_original_pixel_value"></param>
+        /// <param name="myLbl_original_alpha"></param>
+        /// <param name="myLbl_original_red"></param>
+        /// <param name="myLbl_original_green"></param>
+        /// <param name="myLbl_original_blue"></param>
+        /// <param name="myTxtbx_original_pixel"></param>
+        /// <param name="myTxtbx_original_red"></param>
+        /// <param name="myTxtbx_original_green"></param>
+        /// <param name="myTxtbx_original_blue"></param>
+        /// <returns>True is successful else False</returns>
         public static bool DecodePixelColour(PictureBox myPictureBox, Point myPoint, TextBox myTextBoxX,
             TextBox myTextBoxY, Label myLbl_original_pixel_value, Label myLbl_original_alpha,
             Label myLbl_original_red, Label myLbl_original_green, Label myLbl_original_blue,

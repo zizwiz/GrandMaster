@@ -21,6 +21,16 @@ namespace dataEncryption.Utils
             
         }
 
+        /// <summary>
+        /// Write the pixel data to the UI
+        /// </summary>
+        /// <param name="myPixelColor"></param>
+        /// <param name="myLbl_original_pixel_value"></param>
+        /// <param name="myLbl_original_alpha"></param>
+        /// <param name="myLbl_original_red"></param>
+        /// <param name="myLbl_original_green"></param>
+        /// <param name="myLbl_original_blue"></param>
+        /// <returns>True is successful else False</returns>
         public static bool WriteDataToUI(Color myPixelColor, Label myLbl_original_pixel_value, Label myLbl_original_alpha,
             Label myLbl_original_red, Label myLbl_original_green, Label myLbl_original_blue)
         {
@@ -45,6 +55,15 @@ namespace dataEncryption.Utils
 
         }
 
+        /// <summary>
+        /// Colours the channel colour Textboxes to the pixel channel colour
+        /// </summary>
+        /// <param name="myPixelColor"></param>
+        /// <param name="myTxtbx_original_pixel"></param>
+        /// <param name="myTxtbx_original_red"></param>
+        /// <param name="myTxtbx_original_green"></param>
+        /// <param name="myTxtbx_original_blue"></param>
+        /// <returns>True is successful else False</returns>
         public static bool BackColourTextBox(Color myPixelColor, TextBox myTxtbx_original_pixel, 
             TextBox myTxtbx_original_red, TextBox myTxtbx_original_green, TextBox myTxtbx_original_blue)
         {
@@ -71,6 +90,14 @@ namespace dataEncryption.Utils
 
         }
 
+        /// <summary>
+        /// Writes the pixel channel colour to the Channel colour textboxes on the UI as binary data.
+        /// </summary>
+        /// <param name="myPixelColor"></param>
+        /// <param name="myTxtbx_original_red"></param>
+        /// <param name="myTxtbx_original_green"></param>
+        /// <param name="myTxtbx_original_blue"></param>
+        /// <returns>True is successful else False</returns>
         public static bool WriteBinaryDataToTextBoxes(Color myPixelColor, TextBox myTxtbx_original_red, 
             TextBox myTxtbx_original_green, TextBox myTxtbx_original_blue)
         {
@@ -91,6 +118,13 @@ namespace dataEncryption.Utils
 
         }
 
+        /// <summary>
+        /// Resets the encrypted data textboxes.
+        /// </summary>
+        /// <param name="myTxtbx_red_flip_bit8"></param>
+        /// <param name="myTxtbx_red_flip_bit7"></param>
+        /// <param name="myTxtbx_red_flip_bit7_8"></param>
+        /// <returns>True is successful else False</returns>
         public static bool ResetEncyptedTextBoxes(TextBox myTxtbx_red_flip_bit8, TextBox myTxtbx_red_flip_bit7,
             TextBox myTxtbx_red_flip_bit7_8)
         {
