@@ -71,6 +71,28 @@ namespace dataEncryption
             this.lbl_original_green = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.chkbx_encode = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_encoded_blue = new System.Windows.Forms.Label();
+            this.lbl_encoded_green = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lbl_encoded_red = new System.Windows.Forms.Label();
+            this.lbl_encoded_alpha = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtbx_encoded_pixel = new System.Windows.Forms.TextBox();
+            this.lbl_encoded_pixel_value = new System.Windows.Forms.Label();
+            this.txtbx_encoded_blue = new System.Windows.Forms.TextBox();
+            this.txtbx_encoded_green = new System.Windows.Forms.TextBox();
+            this.txtbx_encoded_red = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Original)).BeginInit();
@@ -83,6 +105,8 @@ namespace dataEncryption
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -93,7 +117,7 @@ namespace dataEncryption
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1418, 572);
+            this.tabControl1.Size = new System.Drawing.Size(1418, 492);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -102,7 +126,7 @@ namespace dataEncryption
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1410, 539);
+            this.tabPage1.Size = new System.Drawing.Size(1410, 459);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -153,7 +177,7 @@ namespace dataEncryption
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 320F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1424, 898);
             this.tableLayoutPanel1.TabIndex = 1;
@@ -164,7 +188,7 @@ namespace dataEncryption
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1418, 572);
+            this.panel1.Size = new System.Drawing.Size(1418, 492);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -227,6 +251,7 @@ namespace dataEncryption
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.chkbx_encode);
             this.panel4.Controls.Add(this.txtbx_red_flip_bit7_8);
             this.panel4.Controls.Add(this.txtbx_red_flip_bit7);
             this.panel4.Controls.Add(this.txtbx_red_flip_bit8);
@@ -258,36 +283,23 @@ namespace dataEncryption
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.lbl_original_blue);
-            this.panel3.Controls.Add(this.lbl_original_green);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.lbl_original_red);
-            this.panel3.Controls.Add(this.lbl_original_alpha);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.txtbx_original_pixel);
-            this.panel3.Controls.Add(this.lbl_original_pixel_value);
+            this.panel3.Controls.Add(this.groupBox2);
+            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.txtbx_x_coord);
-            this.panel3.Controls.Add(this.txtbx_original_blue);
             this.panel3.Controls.Add(this.txtbx_y_coord);
-            this.panel3.Controls.Add(this.txtbx_original_green);
             this.panel3.Controls.Add(this.lbl_x_coord);
-            this.panel3.Controls.Add(this.txtbx_original_red);
             this.panel3.Controls.Add(this.lbl_y_coord);
-            this.panel3.Controls.Add(this.lbl_original_r);
-            this.panel3.Controls.Add(this.lbl_original_pixel);
-            this.panel3.Controls.Add(this.lbl_original_g);
-            this.panel3.Controls.Add(this.lbl_original_b);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 581);
+            this.panel3.Location = new System.Drawing.Point(3, 501);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1418, 234);
+            this.panel3.Size = new System.Drawing.Size(1418, 314);
             this.panel3.TabIndex = 2;
             // 
             // txtbx_original_pixel
             // 
-            this.txtbx_original_pixel.Location = new System.Drawing.Point(717, 36);
+            this.txtbx_original_pixel.Location = new System.Drawing.Point(527, 57);
             this.txtbx_original_pixel.Name = "txtbx_original_pixel";
             this.txtbx_original_pixel.Size = new System.Drawing.Size(166, 26);
             this.txtbx_original_pixel.TabIndex = 26;
@@ -295,15 +307,15 @@ namespace dataEncryption
             // lbl_original_pixel_value
             // 
             this.lbl_original_pixel_value.AutoSize = true;
-            this.lbl_original_pixel_value.Location = new System.Drawing.Point(597, 39);
+            this.lbl_original_pixel_value.Location = new System.Drawing.Point(407, 60);
             this.lbl_original_pixel_value.Name = "lbl_original_pixel_value";
-            this.lbl_original_pixel_value.Size = new System.Drawing.Size(51, 20);
+            this.lbl_original_pixel_value.Size = new System.Drawing.Size(29, 20);
             this.lbl_original_pixel_value.TabIndex = 30;
-            this.lbl_original_pixel_value.Text = "label2";
+            this.lbl_original_pixel_value.Text = ".....";
             // 
             // txtbx_x_coord
             // 
-            this.txtbx_x_coord.Location = new System.Drawing.Point(117, 10);
+            this.txtbx_x_coord.Location = new System.Drawing.Point(116, 42);
             this.txtbx_x_coord.Name = "txtbx_x_coord";
             this.txtbx_x_coord.Size = new System.Drawing.Size(53, 26);
             this.txtbx_x_coord.TabIndex = 18;
@@ -311,14 +323,14 @@ namespace dataEncryption
             // 
             // txtbx_original_blue
             // 
-            this.txtbx_original_blue.Location = new System.Drawing.Point(1233, 36);
+            this.txtbx_original_blue.Location = new System.Drawing.Point(1043, 57);
             this.txtbx_original_blue.Name = "txtbx_original_blue";
             this.txtbx_original_blue.Size = new System.Drawing.Size(166, 26);
             this.txtbx_original_blue.TabIndex = 29;
             // 
             // txtbx_y_coord
             // 
-            this.txtbx_y_coord.Location = new System.Drawing.Point(117, 39);
+            this.txtbx_y_coord.Location = new System.Drawing.Point(116, 71);
             this.txtbx_y_coord.Name = "txtbx_y_coord";
             this.txtbx_y_coord.Size = new System.Drawing.Size(53, 26);
             this.txtbx_y_coord.TabIndex = 19;
@@ -326,7 +338,7 @@ namespace dataEncryption
             // 
             // txtbx_original_green
             // 
-            this.txtbx_original_green.Location = new System.Drawing.Point(1061, 36);
+            this.txtbx_original_green.Location = new System.Drawing.Point(871, 57);
             this.txtbx_original_green.Name = "txtbx_original_green";
             this.txtbx_original_green.Size = new System.Drawing.Size(166, 26);
             this.txtbx_original_green.TabIndex = 28;
@@ -334,7 +346,7 @@ namespace dataEncryption
             // lbl_x_coord
             // 
             this.lbl_x_coord.AutoSize = true;
-            this.lbl_x_coord.Location = new System.Drawing.Point(9, 13);
+            this.lbl_x_coord.Location = new System.Drawing.Point(8, 45);
             this.lbl_x_coord.Name = "lbl_x_coord";
             this.lbl_x_coord.Size = new System.Drawing.Size(102, 20);
             this.lbl_x_coord.TabIndex = 20;
@@ -342,7 +354,7 @@ namespace dataEncryption
             // 
             // txtbx_original_red
             // 
-            this.txtbx_original_red.Location = new System.Drawing.Point(889, 36);
+            this.txtbx_original_red.Location = new System.Drawing.Point(699, 57);
             this.txtbx_original_red.Name = "txtbx_original_red";
             this.txtbx_original_red.Size = new System.Drawing.Size(166, 26);
             this.txtbx_original_red.TabIndex = 27;
@@ -350,7 +362,7 @@ namespace dataEncryption
             // lbl_y_coord
             // 
             this.lbl_y_coord.AutoSize = true;
-            this.lbl_y_coord.Location = new System.Drawing.Point(9, 42);
+            this.lbl_y_coord.Location = new System.Drawing.Point(8, 74);
             this.lbl_y_coord.Name = "lbl_y_coord";
             this.lbl_y_coord.Size = new System.Drawing.Size(102, 20);
             this.lbl_y_coord.TabIndex = 21;
@@ -359,38 +371,38 @@ namespace dataEncryption
             // lbl_original_r
             // 
             this.lbl_original_r.AutoSize = true;
-            this.lbl_original_r.Location = new System.Drawing.Point(923, 13);
+            this.lbl_original_r.Location = new System.Drawing.Point(760, 34);
             this.lbl_original_r.Name = "lbl_original_r";
-            this.lbl_original_r.Size = new System.Drawing.Size(96, 20);
+            this.lbl_original_r.Size = new System.Drawing.Size(39, 20);
             this.lbl_original_r.TabIndex = 22;
-            this.lbl_original_r.Text = "Original Red";
+            this.lbl_original_r.Text = "Red";
             // 
             // lbl_original_pixel
             // 
             this.lbl_original_pixel.AutoSize = true;
-            this.lbl_original_pixel.Location = new System.Drawing.Point(651, 13);
+            this.lbl_original_pixel.Location = new System.Drawing.Point(460, 34);
             this.lbl_original_pixel.Name = "lbl_original_pixel";
-            this.lbl_original_pixel.Size = new System.Drawing.Size(98, 20);
+            this.lbl_original_pixel.Size = new System.Drawing.Size(41, 20);
             this.lbl_original_pixel.TabIndex = 25;
-            this.lbl_original_pixel.Text = "Original Pixel";
+            this.lbl_original_pixel.Text = "Pixel";
             // 
             // lbl_original_g
             // 
             this.lbl_original_g.AutoSize = true;
-            this.lbl_original_g.Location = new System.Drawing.Point(1080, 13);
+            this.lbl_original_g.Location = new System.Drawing.Point(924, 34);
             this.lbl_original_g.Name = "lbl_original_g";
-            this.lbl_original_g.Size = new System.Drawing.Size(111, 20);
+            this.lbl_original_g.Size = new System.Drawing.Size(54, 20);
             this.lbl_original_g.TabIndex = 23;
-            this.lbl_original_g.Text = "Original Green";
+            this.lbl_original_g.Text = "Green";
             // 
             // lbl_original_b
             // 
             this.lbl_original_b.AutoSize = true;
-            this.lbl_original_b.Location = new System.Drawing.Point(1261, 13);
+            this.lbl_original_b.Location = new System.Drawing.Point(1099, 34);
             this.lbl_original_b.Name = "lbl_original_b";
-            this.lbl_original_b.Size = new System.Drawing.Size(98, 20);
+            this.lbl_original_b.Size = new System.Drawing.Size(41, 20);
             this.lbl_original_b.TabIndex = 24;
-            this.lbl_original_b.Text = "Original Blue";
+            this.lbl_original_b.Text = "Blue";
             // 
             // button1
             // 
@@ -436,7 +448,7 @@ namespace dataEncryption
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 16);
+            this.label1.Location = new System.Drawing.Point(1, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 20);
             this.label1.TabIndex = 31;
@@ -445,16 +457,16 @@ namespace dataEncryption
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(191, 39);
+            this.label2.Location = new System.Drawing.Point(1, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 20);
+            this.label2.Size = new System.Drawing.Size(39, 20);
             this.label2.TabIndex = 32;
-            this.label2.Text = "red";
+            this.label2.Text = "Red";
             // 
             // lbl_original_alpha
             // 
             this.lbl_original_alpha.AutoSize = true;
-            this.lbl_original_alpha.Location = new System.Drawing.Point(263, 16);
+            this.lbl_original_alpha.Location = new System.Drawing.Point(73, 37);
             this.lbl_original_alpha.Name = "lbl_original_alpha";
             this.lbl_original_alpha.Size = new System.Drawing.Size(25, 20);
             this.lbl_original_alpha.TabIndex = 33;
@@ -463,7 +475,7 @@ namespace dataEncryption
             // lbl_original_red
             // 
             this.lbl_original_red.AutoSize = true;
-            this.lbl_original_red.Location = new System.Drawing.Point(263, 39);
+            this.lbl_original_red.Location = new System.Drawing.Point(73, 60);
             this.lbl_original_red.Name = "lbl_original_red";
             this.lbl_original_red.Size = new System.Drawing.Size(25, 20);
             this.lbl_original_red.TabIndex = 34;
@@ -472,7 +484,7 @@ namespace dataEncryption
             // lbl_original_blue
             // 
             this.lbl_original_blue.AutoSize = true;
-            this.lbl_original_blue.Location = new System.Drawing.Point(489, 39);
+            this.lbl_original_blue.Location = new System.Drawing.Point(299, 60);
             this.lbl_original_blue.Name = "lbl_original_blue";
             this.lbl_original_blue.Size = new System.Drawing.Size(25, 20);
             this.lbl_original_blue.TabIndex = 38;
@@ -481,7 +493,7 @@ namespace dataEncryption
             // lbl_original_green
             // 
             this.lbl_original_green.AutoSize = true;
-            this.lbl_original_green.Location = new System.Drawing.Point(489, 16);
+            this.lbl_original_green.Location = new System.Drawing.Point(299, 37);
             this.lbl_original_green.Name = "lbl_original_green";
             this.lbl_original_green.Size = new System.Drawing.Size(25, 20);
             this.lbl_original_green.TabIndex = 37;
@@ -490,7 +502,7 @@ namespace dataEncryption
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(417, 39);
+            this.label7.Location = new System.Drawing.Point(227, 60);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 20);
             this.label7.TabIndex = 36;
@@ -499,11 +511,234 @@ namespace dataEncryption
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(417, 16);
+            this.label8.Location = new System.Drawing.Point(227, 37);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 20);
             this.label8.TabIndex = 35;
             this.label8.Text = "Green";
+            // 
+            // chkbx_encode
+            // 
+            this.chkbx_encode.AutoSize = true;
+            this.chkbx_encode.Location = new System.Drawing.Point(377, 38);
+            this.chkbx_encode.Name = "chkbx_encode";
+            this.chkbx_encode.Size = new System.Drawing.Size(90, 24);
+            this.chkbx_encode.TabIndex = 36;
+            this.chkbx_encode.Text = "Encode";
+            this.chkbx_encode.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(121, 135);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1277, 26);
+            this.textBox1.TabIndex = 39;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 138);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 20);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Data to Hide: ";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lbl_original_blue);
+            this.groupBox1.Controls.Add(this.lbl_original_green);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.lbl_original_red);
+            this.groupBox1.Controls.Add(this.lbl_original_alpha);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtbx_original_pixel);
+            this.groupBox1.Controls.Add(this.lbl_original_pixel_value);
+            this.groupBox1.Controls.Add(this.txtbx_original_blue);
+            this.groupBox1.Controls.Add(this.txtbx_original_green);
+            this.groupBox1.Controls.Add(this.txtbx_original_red);
+            this.groupBox1.Controls.Add(this.lbl_original_r);
+            this.groupBox1.Controls.Add(this.lbl_original_pixel);
+            this.groupBox1.Controls.Add(this.lbl_original_g);
+            this.groupBox1.Controls.Add(this.lbl_original_b);
+            this.groupBox1.Location = new System.Drawing.Point(189, 11);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1220, 106);
+            this.groupBox1.TabIndex = 41;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Original";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lbl_encoded_blue);
+            this.groupBox2.Controls.Add(this.lbl_encoded_green);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.lbl_encoded_red);
+            this.groupBox2.Controls.Add(this.lbl_encoded_alpha);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.txtbx_encoded_pixel);
+            this.groupBox2.Controls.Add(this.lbl_encoded_pixel_value);
+            this.groupBox2.Controls.Add(this.txtbx_encoded_blue);
+            this.groupBox2.Controls.Add(this.txtbx_encoded_green);
+            this.groupBox2.Controls.Add(this.txtbx_encoded_red);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Location = new System.Drawing.Point(189, 179);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1220, 106);
+            this.groupBox2.TabIndex = 42;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Encoded";
+            // 
+            // lbl_encoded_blue
+            // 
+            this.lbl_encoded_blue.AutoSize = true;
+            this.lbl_encoded_blue.Location = new System.Drawing.Point(299, 60);
+            this.lbl_encoded_blue.Name = "lbl_encoded_blue";
+            this.lbl_encoded_blue.Size = new System.Drawing.Size(25, 20);
+            this.lbl_encoded_blue.TabIndex = 38;
+            this.lbl_encoded_blue.Text = "....";
+            // 
+            // lbl_encoded_green
+            // 
+            this.lbl_encoded_green.AutoSize = true;
+            this.lbl_encoded_green.Location = new System.Drawing.Point(299, 37);
+            this.lbl_encoded_green.Name = "lbl_encoded_green";
+            this.lbl_encoded_green.Size = new System.Drawing.Size(25, 20);
+            this.lbl_encoded_green.TabIndex = 37;
+            this.lbl_encoded_green.Text = "....";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(227, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 20);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Blue";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(227, 37);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 20);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Green";
+            // 
+            // lbl_encoded_red
+            // 
+            this.lbl_encoded_red.AutoSize = true;
+            this.lbl_encoded_red.Location = new System.Drawing.Point(73, 60);
+            this.lbl_encoded_red.Name = "lbl_encoded_red";
+            this.lbl_encoded_red.Size = new System.Drawing.Size(25, 20);
+            this.lbl_encoded_red.TabIndex = 34;
+            this.lbl_encoded_red.Text = "....";
+            // 
+            // lbl_encoded_alpha
+            // 
+            this.lbl_encoded_alpha.AutoSize = true;
+            this.lbl_encoded_alpha.Location = new System.Drawing.Point(73, 37);
+            this.lbl_encoded_alpha.Name = "lbl_encoded_alpha";
+            this.lbl_encoded_alpha.Size = new System.Drawing.Size(25, 20);
+            this.lbl_encoded_alpha.TabIndex = 33;
+            this.lbl_encoded_alpha.Text = "....";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(39, 20);
+            this.label12.TabIndex = 32;
+            this.label12.Text = "Red";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(1, 37);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(50, 20);
+            this.label13.TabIndex = 31;
+            this.label13.Text = "Alpha";
+            // 
+            // txtbx_encoded_pixel
+            // 
+            this.txtbx_encoded_pixel.Location = new System.Drawing.Point(527, 57);
+            this.txtbx_encoded_pixel.Name = "txtbx_encoded_pixel";
+            this.txtbx_encoded_pixel.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_encoded_pixel.TabIndex = 26;
+            // 
+            // lbl_encoded_pixel_value
+            // 
+            this.lbl_encoded_pixel_value.AutoSize = true;
+            this.lbl_encoded_pixel_value.Location = new System.Drawing.Point(407, 60);
+            this.lbl_encoded_pixel_value.Name = "lbl_encoded_pixel_value";
+            this.lbl_encoded_pixel_value.Size = new System.Drawing.Size(29, 20);
+            this.lbl_encoded_pixel_value.TabIndex = 30;
+            this.lbl_encoded_pixel_value.Text = ".....";
+            // 
+            // txtbx_encoded_blue
+            // 
+            this.txtbx_encoded_blue.Location = new System.Drawing.Point(1043, 57);
+            this.txtbx_encoded_blue.Name = "txtbx_encoded_blue";
+            this.txtbx_encoded_blue.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_encoded_blue.TabIndex = 29;
+            // 
+            // txtbx_encoded_green
+            // 
+            this.txtbx_encoded_green.Location = new System.Drawing.Point(871, 57);
+            this.txtbx_encoded_green.Name = "txtbx_encoded_green";
+            this.txtbx_encoded_green.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_encoded_green.TabIndex = 28;
+            // 
+            // txtbx_encoded_red
+            // 
+            this.txtbx_encoded_red.Location = new System.Drawing.Point(699, 57);
+            this.txtbx_encoded_red.Name = "txtbx_encoded_red";
+            this.txtbx_encoded_red.Size = new System.Drawing.Size(166, 26);
+            this.txtbx_encoded_red.TabIndex = 27;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(760, 34);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 20);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "Red";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(460, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 20);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "Pixel";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(924, 34);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 20);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "Green";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(1099, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 20);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Blue";
             // 
             // Form1
             // 
@@ -530,6 +765,10 @@ namespace dataEncryption
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -577,6 +816,28 @@ namespace dataEncryption
         private System.Windows.Forms.Label lbl_original_alpha;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chkbx_encode;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lbl_encoded_blue;
+        private System.Windows.Forms.Label lbl_encoded_green;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_encoded_red;
+        private System.Windows.Forms.Label lbl_encoded_alpha;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtbx_encoded_pixel;
+        private System.Windows.Forms.Label lbl_encoded_pixel_value;
+        private System.Windows.Forms.TextBox txtbx_encoded_blue;
+        private System.Windows.Forms.TextBox txtbx_encoded_green;
+        private System.Windows.Forms.TextBox txtbx_encoded_red;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
