@@ -36,7 +36,8 @@ namespace dataEncryption
 
             CenterToScreen();
 
-            
+
+           
         }
 
         private void btn_close_Click(object sender, EventArgs e)
@@ -148,13 +149,74 @@ namespace dataEncryption
 
         private void btn_encode_bitmap_Click(object sender, EventArgs e)
         {
-            if (!ImageUtilities.Encode(picbx_Original, int.Parse(txtbx_x_coord.Text), int.Parse(txtbx_y_coord.Text),
-                txtbx_red_flip_bit8, txtbx_red_flip_bit7, txtbx_red_flip_bit7_8))
+            //if (!ImageUtilities.Encode(picbx_Original, txtbx_red_flip_bit8,
+            //        txtbx_red_flip_bit7, txtbx_red_flip_bit7_8, txtbx_x_coord, txtbx_y_coord))
+            //{
+            //    MsgBox.Show("Unable to Show encoded binary data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
+
+            //ColourUtilities.WriteDataToUI(pixelColor,  myLbl_original_pixel_value, myLbl_original_alpha,
+            //    myLbl_original_red, myLbl_original_green, myLbl_original_blue);
+
+            //ColourUtilities.BackColourTextBox(pixelColor, myTxtbx_original_pixel,
+            //    myTxtbx_original_red, myTxtbx_original_green, myTxtbx_original_blue);
+
+            //ColourUtilities.WriteBinaryDataToTextBoxes(pixelColor, myTxtbx_original_red,
+            //    myTxtbx_original_green, myTxtbx_original_blue);
+
+            char myChar;
+            int charValue;
+            string binaryString;
+
+            String myString = txtbx_data_to_encode.Text;
+
+            for (int i = 0; i < myString.Length; i++)
             {
-                MsgBox.Show("Unable to Show encoded binary data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                myChar = Convert.ToChar(myString.Substring(i, 1));
+                rchtxtbx_debug.AppendText(myChar + " : ");
+
+                charValue = (int)myChar;
+                rchtxtbx_debug.AppendText(charValue.ToString("X") + " : ");
+
+                binaryString = Convert.ToString(myChar, 2).PadLeft(8, '0');
+                rchtxtbx_debug.AppendText(binaryString + "\r");
+
+                rchtxtbx_debug.ScrollToCaret();
             }
+
+
+
+
+            //char myChar = Convert.ToChar(myString.Substring(0, 1));
+
+            //int charValue = (int)myChar;
+            //string hexValue = charValue.ToString("X");
+
+            //string binaryString = Convert.ToString(myChar, 2).PadLeft(8, '0');
+
+
+            lbl_encoded_pixel_value.Text = ImageUtilities.Encode(picbx_Original, txtbx_red_flip_bit8,
+                txtbx_red_flip_bit7, txtbx_red_flip_bit7_8, txtbx_x_coord, txtbx_y_coord).ToString("X");
+
+
+            ImageUtilities.DecodePixelColour(picbx_Original, new Point(-1, -1), txtbx_x_coord, txtbx_y_coord,
+                lbl_original_pixel_value, lbl_original_alpha, lbl_original_red,
+                lbl_original_green, lbl_original_blue, txtbx_original_pixel, txtbx_original_red,
+                txtbx_original_green, txtbx_original_blue, chkbx_encode, txtbx_red_flip_bit7, txtbx_red_flip_bit8,
+                txtbx_red_flip_bit7_8);
         }
 
-        
+        private void btn_clear_debug_Click(object sender, EventArgs e)
+        {
+            rchtxtbx_debug.Clear();
+        }
+
+        private void btn_generate_random_Click(object sender, EventArgs e)
+        {
+            rchtxtbx_debug.AppendText(picbx_Original.Size + " : ");
+            rchtxtbx_debug.AppendText(NumberUtilities.GenerateRandomNumber(0, picbx_Original.Width) + " : ");
+            rchtxtbx_debug.AppendText(NumberUtilities.GenerateRandomNumber(0, picbx_Original.Height) + "\r");
+        }
     }
 }

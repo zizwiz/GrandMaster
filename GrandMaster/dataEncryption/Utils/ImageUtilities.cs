@@ -44,8 +44,8 @@ namespace dataEncryption.Utils
         public static bool DecodePixelColour(PictureBox myPictureBox, Point myPoint, TextBox myTextBoxX,
             TextBox myTextBoxY, Label myLbl_original_pixel_value, Label myLbl_original_alpha,
             Label myLbl_original_red, Label myLbl_original_green, Label myLbl_original_blue,
-            TextBox myTxtbx_original_pixel, TextBox myTxtbx_original_red, TextBox myTxtbx_original_green, 
-            TextBox myTxtbx_original_blue, CheckBox myCheckBox, TextBox myTxtbx_red_flip_bit7, 
+            TextBox myTxtbx_original_pixel, TextBox myTxtbx_original_red, TextBox myTxtbx_original_green,
+            TextBox myTxtbx_original_blue, CheckBox myCheckBox, TextBox myTxtbx_red_flip_bit7,
             TextBox myTxtbx_red_flip_bit8, TextBox myTxtbx_red_flip_bit7_8)
         {
             int x;
@@ -98,12 +98,12 @@ namespace dataEncryption.Utils
 
             if (myCheckBox.Checked)
             {
-                if (!Encode(myPictureBox, x, y, myTxtbx_red_flip_bit8, myTxtbx_red_flip_bit7,
-                        myTxtbx_red_flip_bit7_8))
-                {
-                    MsgBox.Show("Unable to Show encoded binary data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                //if (!Encode(myPictureBox, myTxtbx_red_flip_bit8, myTxtbx_red_flip_bit7,
+                //        myTxtbx_red_flip_bit7_8, myTextBoxX, myTextBoxY))
+                //{
+                //    MsgBox.Show("Unable to Show encoded binary data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return false;
+                //}
             }
 
 
@@ -114,51 +114,70 @@ namespace dataEncryption.Utils
 
 
 
-        public static bool Encode(PictureBox myPictureBox, int myX, int myY, TextBox myTxtbx_red_flip_bit8, 
-            TextBox myTxtbx_red_flip_bit7, TextBox myTxtbx_red_flip_bit7_8)
+        public static byte Encode(PictureBox myPictureBox, TextBox myTxtbx_red_flip_bit8,
+            TextBox myTxtbx_red_flip_bit7, TextBox myTxtbx_red_flip_bit7_8, TextBox myXTextBox, TextBox myYTextBox)
         {
-            try
-            {
-            // Load the image
-            Bitmap bitmap = new Bitmap(myPictureBox.Image);
+            
+                myXTextBox.Text = NumberUtilities.GenerateRandomNumber(0, myPictureBox.Width).ToString();
+                myYTextBox.Text = NumberUtilities.GenerateRandomNumber(0, myPictureBox.Height).ToString();
 
-           // Get the color of the pixel
-            Color pixelColor = bitmap.GetPixel(myX, myY);
+                // Load the image
+                Bitmap bitmap = new Bitmap(myPictureBox.Image);
 
-            var abc = BitConverter.GetBytes(pixelColor.R | (1 << 0))[0]; //convert byte to binary, change lsb, convert back to byte
+                // Get the color of the pixel
+                Color pixelColor = bitmap.GetPixel(int.Parse(myXTextBox.Text), int.Parse(myYTextBox.Text));
 
-            myTxtbx_red_flip_bit8.BackColor = Color.FromArgb(255, abc,
-                255, 255);
+                //Get the last bit from the red component of the byte.
+                if (DataConversion.ByteToBinary(BitConverter.GetBytes(pixelColor.R)[0]).Substring(7, 1) == "1")
+                {
+                    return pixelColor.G;
+                }
+                
 
-            myTxtbx_red_flip_bit8.Text = DataConversion.ByteToBinary(abc);
 
-            var combined_abc = BitConverter.GetBytes(abc | (1 << 1))[0]; // bit 0 and 1
+                return pixelColor.B;
+            
 
-            abc = BitConverter.GetBytes(pixelColor.R | (1 << 1))[0]; //convert byte to binary, change lsb, convert back to byte
 
-            myTxtbx_red_flip_bit7.BackColor = Color.FromArgb(255, abc,
-                255, 255);
 
-            myTxtbx_red_flip_bit7.Text = DataConversion.ByteToBinary(abc);
 
-            myTxtbx_red_flip_bit7_8.BackColor = Color.FromArgb(255, combined_abc,
-                255, 255);
-            myTxtbx_red_flip_bit7_8.Text = DataConversion.ByteToBinary(combined_abc);
 
-            GC.Collect(); //Clear memory to prevent leaks
+
+
+
+
+
+
+
+
+                //var abc = BitConverter.GetBytes(pixelColor.R | (1 << 0))[0]; //convert byte to binary, change lsb, convert back to byte
+
+                //myTxtbx_red_flip_bit8.BackColor = Color.FromArgb(255, abc,
+                //    255, 255);
+
+                //myTxtbx_red_flip_bit8.Text = DataConversion.ByteToBinary(abc);
+
+                //var combined_abc = BitConverter.GetBytes(abc | (1 << 1))[0]; // bit 0 and 1
+
+                //abc = BitConverter.GetBytes(pixelColor.R | (1 << 1))[0]; //convert byte to binary, change lsb, convert back to byte
+
+                //myTxtbx_red_flip_bit7.BackColor = Color.FromArgb(255, abc,
+                //    255, 255);
+
+                //myTxtbx_red_flip_bit7.Text = DataConversion.ByteToBinary(abc);
+
+                //myTxtbx_red_flip_bit7_8.BackColor = Color.FromArgb(255, combined_abc,
+                //    255, 255);
+                //myTxtbx_red_flip_bit7_8.Text = DataConversion.ByteToBinary(combined_abc);
+
+                //GC.Collect(); //Clear memory to prevent leaks
 
 
                 //picbx_result.Image =
                 //  ImageUtilities.EncodeColourIntoBitmap((Bitmap)picbx_result.Image, myColour, 
                 //      int.Parse(txtbx_x_coord.Text), int.Parse(txtbx_y_coord.Text));
 
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-
-            return true;
+            
         }
 
 

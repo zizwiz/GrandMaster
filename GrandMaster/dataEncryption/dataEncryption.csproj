@@ -87,6 +87,7 @@
     <Compile Include="Utils\DataConversion.cs" />
     <Compile Include="Utils\ImageUtilities.cs" />
     <Compile Include="Utils\MsgBox.cs" />
+    <Compile Include="Utils\NumberUtilities.cs" />
     <Compile Include="Utils\Win32.cs" />
     <EmbeddedResource Include="Coordinates.resx">
       <DependentUpon>Coordinates.cs</DependentUpon>

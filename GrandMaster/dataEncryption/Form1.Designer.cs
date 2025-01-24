@@ -72,7 +72,7 @@ namespace dataEncryption
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.chkbx_encode = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbx_data_to_encode = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -93,6 +93,14 @@ namespace dataEncryption
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.tab_debug = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.rchtxtbx_debug = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_clear_debug = new System.Windows.Forms.Button();
+            this.btn_generate_random = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picbx_Original)).BeginInit();
@@ -107,12 +115,18 @@ namespace dataEncryption
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tab_debug.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tab_debug);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -150,7 +164,7 @@ namespace dataEncryption
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1410, 699);
+            this.tabPage2.Size = new System.Drawing.Size(1410, 459);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -286,7 +300,7 @@ namespace dataEncryption
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBox1);
+            this.panel3.Controls.Add(this.txtbx_data_to_encode);
             this.panel3.Controls.Add(this.txtbx_x_coord);
             this.panel3.Controls.Add(this.txtbx_y_coord);
             this.panel3.Controls.Add(this.lbl_x_coord);
@@ -527,12 +541,13 @@ namespace dataEncryption
             this.chkbx_encode.Text = "Encode";
             this.chkbx_encode.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtbx_data_to_encode
             // 
-            this.textBox1.Location = new System.Drawing.Point(121, 135);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1277, 26);
-            this.textBox1.TabIndex = 39;
+            this.txtbx_data_to_encode.Location = new System.Drawing.Point(121, 135);
+            this.txtbx_data_to_encode.Name = "txtbx_data_to_encode";
+            this.txtbx_data_to_encode.Size = new System.Drawing.Size(1277, 26);
+            this.txtbx_data_to_encode.TabIndex = 39;
+            this.txtbx_data_to_encode.Text = "Hello World";
             // 
             // label3
             // 
@@ -740,6 +755,89 @@ namespace dataEncryption
             this.label18.TabIndex = 24;
             this.label18.Text = "Blue";
             // 
+            // tab_debug
+            // 
+            this.tab_debug.Controls.Add(this.panel6);
+            this.tab_debug.Location = new System.Drawing.Point(4, 29);
+            this.tab_debug.Name = "tab_debug";
+            this.tab_debug.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_debug.Size = new System.Drawing.Size(1410, 459);
+            this.tab_debug.TabIndex = 2;
+            this.tab_debug.Text = "Debug";
+            this.tab_debug.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.tableLayoutPanel3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1404, 453);
+            this.panel6.TabIndex = 0;
+            // 
+            // rchtxtbx_debug
+            // 
+            this.rchtxtbx_debug.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rchtxtbx_debug.Location = new System.Drawing.Point(0, 0);
+            this.rchtxtbx_debug.Name = "rchtxtbx_debug";
+            this.rchtxtbx_debug.Size = new System.Drawing.Size(1198, 447);
+            this.rchtxtbx_debug.TabIndex = 0;
+            this.rchtxtbx_debug.Text = "";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel3.Controls.Add(this.panel7, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel8, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1404, 453);
+            this.tableLayoutPanel3.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.rchtxtbx_debug);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1198, 447);
+            this.panel7.TabIndex = 0;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btn_generate_random);
+            this.panel8.Controls.Add(this.btn_clear_debug);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(1207, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(194, 447);
+            this.panel8.TabIndex = 1;
+            // 
+            // btn_clear_debug
+            // 
+            this.btn_clear_debug.Location = new System.Drawing.Point(18, 369);
+            this.btn_clear_debug.Name = "btn_clear_debug";
+            this.btn_clear_debug.Size = new System.Drawing.Size(134, 58);
+            this.btn_clear_debug.TabIndex = 0;
+            this.btn_clear_debug.Text = "Clear";
+            this.btn_clear_debug.UseVisualStyleBackColor = true;
+            this.btn_clear_debug.Click += new System.EventHandler(this.btn_clear_debug_Click);
+            // 
+            // btn_generate_random
+            // 
+            this.btn_generate_random.Location = new System.Drawing.Point(18, 20);
+            this.btn_generate_random.Name = "btn_generate_random";
+            this.btn_generate_random.Size = new System.Drawing.Size(134, 58);
+            this.btn_generate_random.TabIndex = 1;
+            this.btn_generate_random.Text = "Generate";
+            this.btn_generate_random.UseVisualStyleBackColor = true;
+            this.btn_generate_random.Click += new System.EventHandler(this.btn_generate_random_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -769,6 +867,11 @@ namespace dataEncryption
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tab_debug.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -837,7 +940,15 @@ namespace dataEncryption
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbx_data_to_encode;
+        private System.Windows.Forms.TabPage tab_debug;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.RichTextBox rchtxtbx_debug;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btn_clear_debug;
+        private System.Windows.Forms.Button btn_generate_random;
     }
 }
 
