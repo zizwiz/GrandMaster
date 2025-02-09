@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Windows.Forms;
 
 namespace TakeOff_Landing_Distances
@@ -30,7 +31,7 @@ namespace TakeOff_Landing_Distances
             factorLookUp.Add("soft_ground", new[] { 1.25, 1.25 });
             factorLookUp.Add("safety_margin", new[] { 1.33, 1.43 });
 
-            cmbobox_runway_surface.SelectedIndex = 0;
+            cmbobox_runway_surface.SelectedIndex = 0; // set combobox to first entry.
         }
 
 
@@ -39,18 +40,82 @@ namespace TakeOff_Landing_Distances
             int index = 1; //Index 0 = take-off, 1 = landing
             if (rdobtn_take_off.Checked) index = 0;
 
+            int index2 = 0;
+            string[] data = new string[11];
+            double[] factors = new double[11];
+
             foreach (KeyValuePair<string, double[]> entry in factorLookUp)
             {
                 double[] factor = entry.Value;
                 rchtxtbx_data.AppendText(entry.Key + " = " + factor[index] + "\r");
                 rchtxtbx_data.ScrollToCaret();
+                data[index2] = entry.Key;
+                factors[index2] = factor[index];
+                index2++;
             }
 
+            rchtxtbx_data.AppendText(WorkOutDistance(data, factors).ToString());
+            rchtxtbx_data.ScrollToCaret();
 
         }
 
+        private double WorkOutDistance(string[] mydata, double[] myfactors)
+        {
+            double result;
+            double total = 1;
 
-       
+            for (int i = 0; i < 11; i++)
+            {
+                switch (mydata[i])
+                {
+                    case "weight":
+                        result = myfactors[i];
+                        break;
+                    case "elevation":
+                        result = myfactors[i];
+                        break;
+                    case "temperature":
+                        result = myfactors[i];
+                        break;
+                    case "tailwind":
+                        result = myfactors[i];
+                        break;
+                    case "uphill":
+                        result = myfactors[i];
+                        break;
+                    case "downhill":
+                        result = myfactors[i];
+                        break;
+                    case "dry_grass":
+                        result = myfactors[i];
+                        break;
+                    case "wet_grass":
+                        result = myfactors[i];
+                        break;
+                    case "wet_paved":
+                        result = myfactors[i];
+                        break;
+                    case "soft_ground":
+                        result = myfactors[i];
+                        break;
+                    case "safety_margin":
+                        result = myfactors[i];
+                        break;
+                    default:
+                        result = 1; //Item in array is not used so multiply by 1 which makes no difference
+                        break;
+
+
+
+                }
+
+                total *= result;
+                rchtxtbx_data.AppendText("Multiplier = " + total + "\r");
+            }
+
+            return total;
+        }
+
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
