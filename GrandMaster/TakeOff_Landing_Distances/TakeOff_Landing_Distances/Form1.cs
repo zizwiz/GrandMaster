@@ -15,6 +15,9 @@ namespace TakeOff_Landing_Distances
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Populate factorLookUp dictionary
+            //[take-off factor, landing factor]
+
             factorLookUp.Add("weight", new[] { 1.2, 1.1 });
             factorLookUp.Add("elevation", new[] { 1.1, 1.1 });
             factorLookUp.Add("temperature", new[] { 1.1, 1.1 });
@@ -33,30 +36,21 @@ namespace TakeOff_Landing_Distances
 
         private void btn_get_factor_Click(object sender, EventArgs e)
         {
-            int index = 1;
+            int index = 1; //Index 0 = take-off, 1 = landing
             if (rdobtn_take_off.Checked) index = 0;
-
-            var Results = GetFactor("dry_grass", index);
-
-            rchtxtbx_data.AppendText(Results.Item1 + " = " + Results.Item2 + "\r");
-            rchtxtbx_data.ScrollToCaret();
-        }
-
-
-        private (string, string) GetFactor(string myFactor, int myIndex)
-        {
 
             foreach (KeyValuePair<string, double[]> entry in factorLookUp)
             {
-                if (entry.Key == myFactor)
-                {
-                    double[] factor = entry.Value;
-                    return (entry.Key, factor[myIndex].ToString());
-                }
+                double[] factor = entry.Value;
+                rchtxtbx_data.AppendText(entry.Key + " = " + factor[index] + "\r");
+                rchtxtbx_data.ScrollToCaret();
             }
 
-            return ("","");
+
         }
+
+
+       
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
