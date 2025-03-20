@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Windows.Forms;
+using CenteredMessagebox;
+using TakeOff_Landing_Distances.factors;
 
 namespace TakeOff_Landing_Distances
 {
@@ -32,31 +33,51 @@ namespace TakeOff_Landing_Distances
             factorLookUp.Add("safety_margin", new[] { 1.33, 1.43 });
 
             cmbobox_runway_surface.SelectedIndex = 0; // set combobox to first entry.
+            UpdateUI();
         }
 
 
         private void btn_get_factor_Click(object sender, EventArgs e)
         {
-            int index = 1; //Index 0 = take-off, 1 = landing
-            if (rdobtn_take_off.Checked) index = 0;
+            bool flag = true;
+            rchtxtbx_data.ResetText();
 
+            int index = 1; //Index 0 = take-off, 1 = landing
+            if (rdobtn_take_off.Checked) index = 0; //take-off
+            
             int index2 = 0;
             string[] data = new string[11];
             double[] factors = new double[11];
 
-            foreach (KeyValuePair<string, double[]> entry in factorLookUp)
+            double baseWeight = double.Parse(txtbx_aircraft_base_weight.Text);
+            double ladenWeight = double.Parse(txtbx_aircraft_laden_weight.Text);
+
+            if (ladenWeight < baseWeight)
             {
-                double[] factor = entry.Value;
-                rchtxtbx_data.AppendText(entry.Key + " = " + factor[index] + "\r");
-                rchtxtbx_data.ScrollToCaret();
-                data[index2] = entry.Key;
-                factors[index2] = factor[index];
-                index2++;
+                MsgBox.Show("Laden Weight must be equal or larger than Base Weight", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtbx_aircraft_laden_weight.Text = txtbx_aircraft_base_weight.Text;
+                flag = false;
             }
 
-            rchtxtbx_data.AppendText(WorkOutDistance(data, factors).ToString());
-            rchtxtbx_data.ScrollToCaret();
+            if (flag)
+            {
+                rchtxtbx_data.AppendText("Weight: " + WeightFactor.WorkOutWeightFactor(
+                    baseWeight, ladenWeight, index) + "\r");
+                
+                foreach (KeyValuePair<string, double[]> entry in factorLookUp)
+                {
+                    double[] factor = entry.Value;
+                    rchtxtbx_data.AppendText(entry.Key + " = " + factor[index] + "\r");
+                    rchtxtbx_data.ScrollToCaret();
+                    data[index2] = entry.Key;
+                    factors[index2] = factor[index];
+                    index2++;
+                }
 
+                rchtxtbx_data.AppendText(WorkOutDistance(data, factors).ToString());
+                rchtxtbx_data.ScrollToCaret();
+            }
         }
 
         private double WorkOutDistance(string[] mydata, double[] myfactors)
@@ -119,12 +140,21 @@ namespace TakeOff_Landing_Distances
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            UpdateUI();
+        }
+
+        private void UpdateUI()
+        {
+            txtbx_aircraft_laden_weight.Text = txtbx_aircraft_base_weight.Text;
+
             if (rdobtn_take_off.Checked)
             {
+                lbl_weight_type.Text = "Takeoff Weight";
                 lbl_runway_slope.Text = "Runway Uphill Slope Angle";
             }
             else
             {
+                lbl_weight_type.Text = "Landing Weight";
                 lbl_runway_slope.Text = "Runway Downhill Slope Angle";
             }
         }

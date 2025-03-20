@@ -32,7 +32,7 @@ namespace TakeOff_Landing_Distances
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.rchtxtbx_data = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtbx_aircraft_weight = new System.Windows.Forms.TextBox();
+            this.txtbx_aircraft_base_weight = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtbx_aerodrome_elevation = new System.Windows.Forms.TextBox();
@@ -56,6 +56,9 @@ namespace TakeOff_Landing_Distances
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_get_factor = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtbx_aircraft_laden_weight = new System.Windows.Forms.TextBox();
+            this.lbl_weight_type = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,17 +75,17 @@ namespace TakeOff_Landing_Distances
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(35, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 20);
+            this.label1.Size = new System.Drawing.Size(155, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Aircraft Weight";
+            this.label1.Text = "Aircraft Base Weight";
             // 
-            // txtbx_aircraft_weight
+            // txtbx_aircraft_base_weight
             // 
-            this.txtbx_aircraft_weight.Location = new System.Drawing.Point(258, 65);
-            this.txtbx_aircraft_weight.Name = "txtbx_aircraft_weight";
-            this.txtbx_aircraft_weight.Size = new System.Drawing.Size(100, 26);
-            this.txtbx_aircraft_weight.TabIndex = 4;
-            this.txtbx_aircraft_weight.Text = "450";
+            this.txtbx_aircraft_base_weight.Location = new System.Drawing.Point(258, 65);
+            this.txtbx_aircraft_base_weight.Name = "txtbx_aircraft_base_weight";
+            this.txtbx_aircraft_base_weight.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_aircraft_base_weight.TabIndex = 4;
+            this.txtbx_aircraft_base_weight.Text = "450";
             // 
             // label2
             // 
@@ -96,7 +99,7 @@ namespace TakeOff_Landing_Distances
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(364, 100);
+            this.label3.Location = new System.Drawing.Point(364, 161);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 20);
             this.label3.TabIndex = 8;
@@ -104,7 +107,7 @@ namespace TakeOff_Landing_Distances
             // 
             // txtbx_aerodrome_elevation
             // 
-            this.txtbx_aerodrome_elevation.Location = new System.Drawing.Point(258, 97);
+            this.txtbx_aerodrome_elevation.Location = new System.Drawing.Point(258, 158);
             this.txtbx_aerodrome_elevation.Name = "txtbx_aerodrome_elevation";
             this.txtbx_aerodrome_elevation.Size = new System.Drawing.Size(100, 26);
             this.txtbx_aerodrome_elevation.TabIndex = 7;
@@ -113,7 +116,7 @@ namespace TakeOff_Landing_Distances
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 100);
+            this.label4.Location = new System.Drawing.Point(35, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(157, 20);
             this.label4.TabIndex = 6;
@@ -122,7 +125,7 @@ namespace TakeOff_Landing_Distances
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(364, 164);
+            this.label5.Location = new System.Drawing.Point(364, 225);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 20);
             this.label5.TabIndex = 14;
@@ -130,7 +133,7 @@ namespace TakeOff_Landing_Distances
             // 
             // txtbx_tailwind_component
             // 
-            this.txtbx_tailwind_component.Location = new System.Drawing.Point(258, 161);
+            this.txtbx_tailwind_component.Location = new System.Drawing.Point(258, 222);
             this.txtbx_tailwind_component.Name = "txtbx_tailwind_component";
             this.txtbx_tailwind_component.Size = new System.Drawing.Size(100, 26);
             this.txtbx_tailwind_component.TabIndex = 13;
@@ -139,7 +142,7 @@ namespace TakeOff_Landing_Distances
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 164);
+            this.label6.Location = new System.Drawing.Point(35, 225);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(152, 20);
             this.label6.TabIndex = 12;
@@ -148,7 +151,7 @@ namespace TakeOff_Landing_Distances
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(364, 132);
+            this.label7.Location = new System.Drawing.Point(364, 193);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(25, 20);
             this.label7.TabIndex = 11;
@@ -156,7 +159,7 @@ namespace TakeOff_Landing_Distances
             // 
             // txtbx_ambeint_temperature
             // 
-            this.txtbx_ambeint_temperature.Location = new System.Drawing.Point(258, 129);
+            this.txtbx_ambeint_temperature.Location = new System.Drawing.Point(258, 190);
             this.txtbx_ambeint_temperature.Name = "txtbx_ambeint_temperature";
             this.txtbx_ambeint_temperature.Size = new System.Drawing.Size(100, 26);
             this.txtbx_ambeint_temperature.TabIndex = 10;
@@ -165,7 +168,7 @@ namespace TakeOff_Landing_Distances
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 132);
+            this.label8.Location = new System.Drawing.Point(35, 193);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(163, 20);
             this.label8.TabIndex = 9;
@@ -174,7 +177,7 @@ namespace TakeOff_Landing_Distances
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(35, 228);
+            this.label12.Location = new System.Drawing.Point(35, 289);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 20);
             this.label12.TabIndex = 21;
@@ -183,7 +186,7 @@ namespace TakeOff_Landing_Distances
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(364, 196);
+            this.label15.Location = new System.Drawing.Point(364, 257);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(23, 20);
             this.label15.TabIndex = 17;
@@ -191,7 +194,7 @@ namespace TakeOff_Landing_Distances
             // 
             // txtbx_runway_slope_angle
             // 
-            this.txtbx_runway_slope_angle.Location = new System.Drawing.Point(258, 193);
+            this.txtbx_runway_slope_angle.Location = new System.Drawing.Point(258, 254);
             this.txtbx_runway_slope_angle.Name = "txtbx_runway_slope_angle";
             this.txtbx_runway_slope_angle.Size = new System.Drawing.Size(100, 26);
             this.txtbx_runway_slope_angle.TabIndex = 16;
@@ -200,7 +203,7 @@ namespace TakeOff_Landing_Distances
             // lbl_runway_slope
             // 
             this.lbl_runway_slope.AutoSize = true;
-            this.lbl_runway_slope.Location = new System.Drawing.Point(35, 196);
+            this.lbl_runway_slope.Location = new System.Drawing.Point(35, 257);
             this.lbl_runway_slope.Name = "lbl_runway_slope";
             this.lbl_runway_slope.Size = new System.Drawing.Size(199, 20);
             this.lbl_runway_slope.TabIndex = 15;
@@ -213,7 +216,7 @@ namespace TakeOff_Landing_Distances
             "Dry Grass",
             "Wet Grass",
             "Wet Paved"});
-            this.cmbobox_runway_surface.Location = new System.Drawing.Point(258, 231);
+            this.cmbobox_runway_surface.Location = new System.Drawing.Point(258, 292);
             this.cmbobox_runway_surface.Name = "cmbobox_runway_surface";
             this.cmbobox_runway_surface.Size = new System.Drawing.Size(136, 28);
             this.cmbobox_runway_surface.TabIndex = 22;
@@ -221,7 +224,7 @@ namespace TakeOff_Landing_Distances
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 268);
+            this.label10.Location = new System.Drawing.Point(35, 329);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(101, 20);
             this.label10.TabIndex = 23;
@@ -230,7 +233,7 @@ namespace TakeOff_Landing_Distances
             // chkbx_soft_snow
             // 
             this.chkbx_soft_snow.AutoSize = true;
-            this.chkbx_soft_snow.Location = new System.Drawing.Point(258, 269);
+            this.chkbx_soft_snow.Location = new System.Drawing.Point(258, 330);
             this.chkbx_soft_snow.Name = "chkbx_soft_snow";
             this.chkbx_soft_snow.Size = new System.Drawing.Size(22, 21);
             this.chkbx_soft_snow.TabIndex = 24;
@@ -270,6 +273,9 @@ namespace TakeOff_Landing_Distances
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtbx_aircraft_laden_weight);
+            this.groupBox1.Controls.Add(this.lbl_weight_type);
             this.groupBox1.Controls.Add(this.rdobtn_landing);
             this.groupBox1.Controls.Add(this.rdobtn_take_off);
             this.groupBox1.Controls.Add(this.label9);
@@ -290,11 +296,11 @@ namespace TakeOff_Landing_Distances
             this.groupBox1.Controls.Add(this.txtbx_aerodrome_elevation);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtbx_aircraft_weight);
+            this.groupBox1.Controls.Add(this.txtbx_aircraft_base_weight);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(32, 49);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 312);
+            this.groupBox1.Size = new System.Drawing.Size(450, 460);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             // 
@@ -318,6 +324,32 @@ namespace TakeOff_Landing_Distances
             this.btn_get_factor.UseVisualStyleBackColor = true;
             this.btn_get_factor.Click += new System.EventHandler(this.btn_get_factor_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(364, 100);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(26, 20);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "kg";
+            // 
+            // txtbx_aircraft_laden_weight
+            // 
+            this.txtbx_aircraft_laden_weight.Location = new System.Drawing.Point(258, 97);
+            this.txtbx_aircraft_laden_weight.Name = "txtbx_aircraft_laden_weight";
+            this.txtbx_aircraft_laden_weight.Size = new System.Drawing.Size(100, 26);
+            this.txtbx_aircraft_laden_weight.TabIndex = 29;
+            this.txtbx_aircraft_laden_weight.Text = "0";
+            // 
+            // lbl_weight_type
+            // 
+            this.lbl_weight_type.AutoSize = true;
+            this.lbl_weight_type.Location = new System.Drawing.Point(35, 100);
+            this.lbl_weight_type.Name = "lbl_weight_type";
+            this.lbl_weight_type.Size = new System.Drawing.Size(83, 20);
+            this.lbl_weight_type.TabIndex = 28;
+            this.lbl_weight_type.Text = "..... Weight";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -340,7 +372,7 @@ namespace TakeOff_Landing_Distances
         #endregion
         private System.Windows.Forms.RichTextBox rchtxtbx_data;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtbx_aircraft_weight;
+        private System.Windows.Forms.TextBox txtbx_aircraft_base_weight;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtbx_aerodrome_elevation;
@@ -364,6 +396,9 @@ namespace TakeOff_Landing_Distances
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_get_factor;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtbx_aircraft_laden_weight;
+        private System.Windows.Forms.Label lbl_weight_type;
     }
 }
 
